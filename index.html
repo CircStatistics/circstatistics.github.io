@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="google-site-verification" content="BNvM1pqCTRK6TiBePQtK2GKNpFFGEZeH3gFXhZrIXfI" />
 <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Map with Circumcision Rate</title>
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/geodata/worldLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
 </head>
 <body>
     <header class="top-header">
@@ -17,7 +23,9 @@
         </div>
     </header>
     <h2>Circumcision Statistics and Estimates</h2>
+    <div id="chartdiv" style="width: 100%; height: 500px;"></div>
 
+    <h4>Note: if no data for the percentage of population by gender exists, the percentage of males is assumed to be 50%</h4>
 <input type="text" id="searchInput" placeholder="Search for a country..." onkeyup="searchTable()">
 <select id="continentFilter" onchange="filterTable()">
     <option value="all">All Continents</option>
@@ -29,7 +37,7 @@
     <option value="Oceania">Oceania</option>
 </select>
     <table id="dataTable">
-<tr>
+<tr class="freezeHeader">
         <th class="sort-btn">Country</th>
         <th class="sort-btn">Continent</th>
         <th class="sort-btn">Total Population</th>
@@ -1535,7 +1543,7 @@
         <td></td>
         <td></td>
         <td>70,218</td>
-        <td>20.7%</td>
+        <td>6.7%</td>
         <td>0%</td>
      <tr>
         <td>United Kingdom</td>
@@ -1546,7 +1554,7 @@
         <td></td>
         <td></td>
         <td>137,000</td>
-        <td>51.9%</td>
+        <td>20.7%</td>
         <td>0%</td>
      <tr>
         <td>France</td>
@@ -2307,7 +2315,6 @@
         <td></td>
         <td>12.8%</td>
         <td>0.7%</td>
-        <td>0.7%</td>
     <tr>
         <td>Chad</td>
         <td>Africa</td>
@@ -2696,12 +2703,24 @@
     </tr>
     <!-- Add more rows for additional countries -->
 </table>
+        <table id="continentTotals">
+    <tr>
+        <th>Continent</th>
+        <th>Total Population</th>
+        <th>Male Population</th>
+        <th>Female Population</th>
+        <th>Circumcised Male Population</th>
+        <th>Circumcised Female Population</th>
+    </tr>
+        <!-- This is where the continent total table will be inserted -->
+    </table>
+    <h2>Conclusion</h2>
+    <h4>This report provides the most accurate estimate to date of circumcision prevalence in each country and territory of the world. We estimate that 1,064,931,390 men globally are circumcised. Considering the physical and psychological effects of male circumcision, these data may help guide efforts aimed at the prevention of routine infant circumcision throughout the world.</h4>
     <h2>References</h2>
-    <h3>This table is written given the following data:</h3>
-    <h3>Population numbers: <a href ="https://web.archive.org/web/20240127121503/https://worldpopulationreview.com/continents">World Population Review, 2024</a></h3>
-    <h3>Percentage of the population that is male (If no data exists, percentage of males is assumed to be 50%):  <a href ="https://web.archive.org/web/20240303112040/https://data.worldbank.org/indicator/SP.POP.TOTL.MA.ZS">World Bank, 2022</a></h3>
-    <h3>(Male) Circumcision rate by country: <a href = "https://web.archive.org/web/20231204223130/https://worldpopulationreview.com/country-rankings/circumcision-by-country">World Population Review, 2016</a></h3>
-    <h3>Female Genital Mutilation (i.e. circumcision) data: <a href = "https://web.archive.org/web/20230209073813/https://www.endfgm.eu/editor/files/2020/04/FGM_Global_-_ONLINE_PDF_VERSION_-_07.pdf">endfgm.eu, 2020</a></h3>
+    <h4>Morris, B. J., Wamai, R. G., Henebeng, E. B., Tobian, A. A., Klausner, J. D., Banerjee, J., & Hankins, C. A. (2016). Estimation of country-specific and global prevalence of male circumcision. Population Health Metrics, 14(1). <a href="https://doi.org/10.1186/s12963-016-0073-5">https://doi.org/10.1186/s12963-016-0073-5</a></h4>
+    <h4>Population by Continent 2024. World Popuation Review. (2024). <a href="https://web.archive.org/web/20240127121503/https://worldpopulationreview.com/continents">https://web.archive.org/web/20240127121503/https://worldpopulationreview.com/continents</a> </h4>
+    <h4>Population, male (% of total population). World Bank Open Data. (2022). <a href="https://web.archive.org/web/20240303112040/https://data.worldbank.org/indicator/SP.POP.TOTL.MA.ZS">https://web.archive.org/web/20240303112040/https://data.worldbank.org/indicator/SP.POP.TOTL.MA.ZS/a></a></h4>
+    <h4>Female Genital Mutilation/Cutting: A Call for a Global Response. EndFGM. (2020, March). <a href="https://web.archive.org/web/20230209073813/https://www.endfgm.eu/editor/files/2020/04/FGM_Global_-_ONLINE_PDF_VERSION_-_07.pdf">https://web.archive.org/web/20230209073813/https://www.endfgm.eu/editor/files/2020/04/FGM_Global_-_ONLINE_PDF_VERSION_-_07.pdf</a></h4>
 
 </body>
 <script>
@@ -2765,6 +2784,7 @@ function isNumeric(value) {
     return !isNaN(parseFloat(value)) && isFinite(value);
 }
 
+
 function calculatePopulation() {
     var table = document.getElementById("dataTable");
     var rows = table.getElementsByTagName("tr");
@@ -2779,19 +2799,72 @@ function calculatePopulation() {
         row.cells[4].innerText = malePopulation.toLocaleString();
         row.cells[5].innerText = femalePopulation.toLocaleString();
 
-        if (row.cells[6].innerText.trim() === "") {
-            var circumcisionRateMales = parseFloat(row.cells[8].innerText.replace("%", "")); // Remove percentage symbol
-            var circumcisedMales = Math.round((circumcisionRateMales / 100) * malePopulation);
-            row.cells[6].innerText = circumcisedMales.toLocaleString();
+        var circumcisionRateMales = parseFloat(row.cells[8].innerText.replace("%", "")); // Remove percentage symbol
+        var circumcisionRateFemales = parseFloat(row.cells[9].innerText.replace("%", "")); // Remove percentage symbol
+
+        var circumcisedMales = Math.round((circumcisionRateMales / 100) * malePopulation);
+        var circumcisedFemales = parseInt(row.cells[7].innerText.replace(/,/g, ""));
+
+        if (isNaN(circumcisedFemales) || circumcisedFemales === 0) {
+            // Calculate the circumcision rate for females
+            circumcisedFemales = Math.round((circumcisionRateFemales / 100) * femalePopulation);
+            row.cells[7].innerText = circumcisedFemales.toLocaleString();
+        } else if (isNaN(circumcisionRateFemales) || circumcisionRateFemales === 0) {
+            // Calculate the circumcision rate for females
+            circumcisionRateFemales = (circumcisedFemales / femalePopulation) * 100;
+            row.cells[9].innerText = circumcisionRateFemales.toFixed(1) + "%";
         }
 
-        if (row.cells[7].innerText.trim() === "") {
-            var circumcisionRateFemales = parseFloat(row.cells[9].innerText.replace("%", "")); // Remove percentage symbol
-            var circumcisedFemales = Math.round((circumcisionRateFemales / 100) * femalePopulation);
-            row.cells[7].innerText = circumcisedFemales.toLocaleString();
-        }
+        row.cells[6].innerText = circumcisedMales.toLocaleString();
     }
 }
+function calculateContinentTotals() {
+    var continentTotals = {};
+    var rows = document.querySelectorAll("#dataTable tbody tr");
+    rows.forEach(function(row) {
+        var continent = row.children[1].textContent.trim();
+        if (!continentTotals[continent]) {
+            continentTotals[continent] = {
+                totalPopulation: 0,
+                malePopulation: 0,
+                femalePopulation: 0,
+                circumcisedMalePopulation: 0,
+                circumcisedFemalePopulation: 0
+            };
+        }
+        continentTotals[continent].totalPopulation += parseInt(row.children[2].textContent.replace(/,/g, ''), 10);
+        continentTotals[continent].malePopulation += parseInt(row.children[4].textContent.replace(/,/g, ''), 10);
+        continentTotals[continent].femalePopulation += parseInt(row.children[5].textContent.replace(/,/g, ''), 10);
+        
+        var circumcisedMale = parseInt(row.children[6].textContent.replace(/,/g, ''), 10);
+        if (!isNaN(circumcisedMale)) {
+            continentTotals[continent].circumcisedMalePopulation += circumcisedMale;
+        }
+        
+        var circumcisedFemale = parseInt(row.children[7].textContent.replace(/,/g, ''), 10);
+        if (!isNaN(circumcisedFemale)) {
+            continentTotals[continent].circumcisedFemalePopulation += circumcisedFemale;
+        }
+    });
+    
+    var continentTotalsElement = document.getElementById("continentTotals");
+    for (var continent in continentTotals) {
+        var newRow = continentTotalsElement.insertRow(-1);
+        newRow.innerHTML = `
+            <td>${continent}</td>
+            <td>${continentTotals[continent].totalPopulation.toLocaleString()}</td>
+            <td>${continentTotals[continent].malePopulation.toLocaleString()}</td>
+            <td>${continentTotals[continent].femalePopulation.toLocaleString()}</td>
+            <td>${continentTotals[continent].circumcisedMalePopulation.toLocaleString()}</td>
+            <td>${continentTotals[continent].circumcisedFemalePopulation.toLocaleString()}</td>
+        `;
+    }
+    // Remove the first row (header row)
+    continentTotalsElement.deleteRow(1);
+}
+
+
+
 
 function searchTable() {
     var input, filter, table, tr, td, i, txtValue;
@@ -2830,54 +2903,285 @@ function filterTable() {
         }
     }
 }
-function calculateContinentSummary() {
-    var table = document.getElementById("dataTable");
-    var rows = table.getElementsByTagName("tr");
-    var continentTotals = {};
-
-    // Calculate continent totals
-    for (var i = 1; i < rows.length; i++) {
-        var row = rows[i];
-        var continent = row.cells[1].innerText.trim(); // Assuming continent is in the second column
-        var population = parseInt(row.cells[2].innerText.replace(/,/g, ""));
-
-        if (continentTotals[continent]) {
-            continentTotals[continent] += population;
-        } else {
-            continentTotals[continent] = population;
-        }
-    }
-
-    // Add continent summary rows
-    var continentSummaryRow = document.createElement("tr");
-    var headerRow = table.rows[0];
-    for (var j = 0; j < headerRow.cells.length; j++) {
-        var cell = document.createElement("th");
-        if (j === 0) {
-            cell.innerText = "Continent Summary";
-        } else if (j === 1) {
-            cell.colSpan = 2; // Merge two cells for continent name and population
-            continentSummaryRow.appendChild(cell);
-            continue;
-        } else {
-            cell.innerText = continentTotals[headerRow.cells[j].innerText.trim()].toLocaleString();
-        }
-        continentSummaryRow.appendChild(cell);
-    }
-
-    // Insert summary row at the top of the table
-    table.insertBefore(continentSummaryRow, table.rows[1]);
-}
+    
 
 window.onload = function() {
     calculatePopulation();
-    calculateContinentSummary();
-};
-
-window.onload = function() {
-    calculatePopulation();
+    calculateContinentTotals();
 };
 </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7328745136727655"
      crossorigin="anonymous"></script>
+    <script>
+am4core.ready(function() {
+    // Create chart instance
+    var chart = am4core.create("chartdiv", am4maps.MapChart);
+    chart.geodata = am4geodata_worldLow;
+    chart.projection = new am4maps.projections.Miller();
+        // Set background color
+    chart.background.fill = am4core.color("#0080ff"); // Light gray
+
+    // Create map polygon series
+    var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+    polygonSeries.useGeodata = true;
+
+    // Set up data for countries (replace this with your actual data)
+    var data = [
+        { "id": "US", "value": 71.2 },
+        { "id": "CN", "value": 14 },
+        { "id": "IN", "value": 13.5 },
+        { "id": "AF", "value": 99.8 },
+        { "id": "AL", "value": 47.7 },
+        { "id": "DZ", "value": 97.9 },
+        { "id": "AS", "value": 95 },
+        { "id": "AD", "value": 1.1 },
+        { "id": "AO", "value": 57.5 },
+        { "id": "AIAS", "value": 0.3 },
+        { "id": "AS", "value": "Literally Antartica" },
+        { "id": "AG", "value": 0.6 },
+        { "id": "AR", "value": 2.9 },
+        { "id": "AM", "value": 0.1 },
+        { "id": "AW", "value": 0.5 },
+        { "id": "AU", "value": 26.6 },
+        { "id": "AT", "value": 5.8 },
+        { "id": "AZ", "value": 98.5 },
+        { "id": "BS", "value": 0.2 },
+        { "id": "BH", "value": 81.2 },
+        { "id": "BD", "value": 93.2 },
+        { "id": "BB", "value": 0.9 },
+        { "id": "BY", "value": 0.3 },
+        { "id": "BE", "value": 22.6 },
+        { "id": "BZ", "value": 0.1 },
+        { "id": "BJ", "value": 92.9 },
+        { "id": "BM", "value": 0.8 },
+        { "id": "BT", "value": 1 },
+        { "id": "BO", "value": 0.1 },
+        { "id": "BA", "value": 41.6 },
+        { "id": "BW", "value": 15.1 },
+        { "id": "BR", "value": 1.3 },
+        { "id": "BN", "value": 51.9 },
+        { "id": "BG", "value": 13.4 },
+        { "id": "BF", "value": "UNKNOWN" },
+        { "id": "BI", "value": 61.7 },
+        { "id": "CV", "value": 0.1 },
+        { "id": "KH", "value": 0.2 },
+        { "id": "CF", "value": 63 },
+        { "id": "TD", "value": 73.5 },
+        { "id": "CL", "value": 0.2 },
+        { "id": "CO", "value": 2.9 },
+        { "id": "KM", "value": 99.4 },
+        { "id": "CD", "value": 97.2 },
+        { "id": "CG", "value": 70 },
+        { "id": "CK", "value": 95 },
+        { "id": "CR", "value": 0.2 },
+        { "id": "HR", "value": 1.3 },
+        { "id": "CU", "value": 0.1 },
+        { "id": "CW", "value": 0.1 },
+        { "id": "CY", "value": 22.7 },
+        { "id": "CZ", "value": 0.1 },
+        { "id": "CI", "value": 96.7 },
+        { "id": "DK", "value": 5.3 },
+        { "id": "DJ", "value": "UNKNOWN" },
+        { "id": "DM", "value": 0.2 },
+        { "id": "DO", "value": 13.7 },
+        { "id": "EC", "value": 0.1 },
+        { "id": "EG", "value": 94.7 },
+        { "id": "SV", "value": 0.1 },
+        { "id": "GQ", "value": 87 },
+        { "id": "ER", "value": 97.2 },
+        { "id": "EE", "value": 0.3 },
+        { "id": "SZ", "value": 96.5 },
+        { "id": "ET", "value": 92.2 },
+        { "id": "FK", "value": 0.1 },
+        { "id": "FO", "value": 0.1 },
+        { "id": "FJ", "value": 55 },
+        { "id": "FI", "value": 0.8 },
+        { "id": "FR", "value": 14 },
+        { "id": "GF", "value": "UNKNOWN" },
+        { "id": "PF", "value": 78 },
+        { "id": "GA", "value": 99.2 },
+        { "id": "GM", "value": 94.5 },
+        { "id": "GE", "value": "UNKNOWN" },
+        { "id": "DE", "value": 6.7 },
+        { "id": "GH", "value": 91.6 },
+        { "id": "GI", "value": 6 },
+        { "id": "GR", "value": 4.7 },
+        { "id": "GL", "value": 0.1 },
+        { "id": "GD", "value": 0.3 },
+        { "id": "GP", "value": "UNKNOWN" },
+        { "id": "GU", "value": 95 },
+        { "id": "GT", "value": 0.1 },
+        { "id": "GG", "value": 0.1 },
+        { "id": "GN", "value": 84.2 },
+        { "id": "GW", "value": 93.3 },
+        { "id": "GY", "value": 12 },
+        { "id": "HT", "value": 6.2 },
+        { "id": "VT", "value": 0.1 },
+        { "id": "HN", "value": 0.1 },
+        { "id": "HK", "value": 28 },
+        { "id": "HU", "value": 0.8 },
+        { "id": "IS", "value": 0.1 },
+        { "id": "ID", "value": 92.5 },
+        { "id": "IR", "value": 99.7 },
+        { "id": "IQ", "value": 98.9 },
+        { "id": "IE", "value": 0.9 },
+        { "id": "IM", "value": 0.2 },
+        { "id": "IL", "value": 91.7 },
+        { "id": "IT", "value": 2.6 },
+        { "id": "JM", "value": 14 },
+        { "id": "JP", "value": 9.5 },
+        { "id": "JE", "value": 0.1 },
+        { "id": "KZ", "value": 56.4 },
+        { "id": "KE", "value": 91.2 },
+        { "id": "KI", "value": 0.1 },
+        { "id": "AS", "value": 95 },
+        { "id": "KP", "value": 0.1 },
+        { "id": "KR", "value": 77 },
+        { "id": "KW", "value": 86.4 },
+        { "id": "KG", "value": 91.9 },
+        { "id": "LA", "value": 0.1 },
+        { "id": "LV", "value": 0.4 },
+        { "id": "LB", "value": 59.7 },
+        { "id": "LS", "value": 52 },
+        { "id": "LR", "value": 97.7 },
+        { "id": "LY", "value": 86.6 },
+        { "id": "LI", "value": 4.8 },
+        { "id": "LT", "value": 0.2 },
+        { "id": "LU", "value": 2.4 },
+        { "id": "MO", "value": 0.1 },
+        { "id": "MG", "value": 94.7 },
+        { "id": "MW", "value": 21.6 },
+        { "id": "MY", "value": 61.4 },
+        { "id": "ML", "value": 86 },
+        { "id": "MT", "value": 0.3 },
+        { "id": "MH", "value": 0.1 },
+        { "id": "MQ", "value": "UNKNOWN"},
+        { "id": "MR", "value": 99.2 },
+        { "id": "MU", "value": 16.6 },
+        { "id": "YT", "value": "UNKNOWN" },
+        { "id": "MX", "value": 15.4 },
+        { "id": "FM", "value": 0.1 },
+        { "id": "MD", "value": 0.5 },
+        { "id": "MC", "value": 0.5 },
+        { "id": "MN", "value": 4.4 },
+        { "id": "ME", "value": 18.5 },
+        { "id": "MS", "value": 0.1 },
+        { "id": "MA", "value": 99.9 },
+        { "id": "MZ", "value": 47.4 },
+        { "id": "MM", "value": 3.5 },
+        { "id": "NA", "value": 25.5 },
+        { "id": "NR", "value": 95 },
+        { "id": "NP", "value": 4.2 },
+        { "id": "NL", "value": 5.7 },
+        { "id": "NC", "value": 50 },
+        { "id": "NZ", "value": 33 },
+        { "id": "NI", "value": 0.1 },
+        { "id": "NE", "value": 95.5 },
+        { "id": "NG", "value": 98.9 },
+        { "id": "NU", "value": 95 },
+        { "id": "MP", "value": 90 },
+        { "id": "NO", "value": 3 },
+        { "id": "OM", "value": 87.7 },
+        { "id": "PS", "value": 99.9 },
+        { "id": "PA", "value": 1 },
+        { "id": "PG", "value": 10.1 },
+        { "id": "PY", "value": 0.1 },
+        { "id": "PE", "value": 3.7 },
+        { "id": "PH", "value": 91.7 },
+        { "id": "PL", "value": 0.1 },
+        { "id": "PT", "value": 0.6 },
+        { "id": "PR", "value": 0.1},
+        { "id": "QA", "value": 77.5 },
+        { "id": "MK", "value": "UNKNOWN" },
+        { "id": "LY", "value": 86.6 },
+        { "id": "RO", "value": 0.3 },
+        { "id": "RU", "value": 10.9 },
+        { "id": "RW", "value": 13.3 },
+        { "id": "RE", "value": "UNKNOWN" },
+        { "id": "BL", "value": 0.1 },
+        { "id": "KN", "value": 0.3 },
+        { "id": "LC", "value": 0.1 },
+        { "id": "MF", "value": 0.1 },
+        { "id": "PM", "value": 0.2 },
+        { "id": "VC", "value": 1.7 },
+        { "id": "WS", "value": 95 },
+        { "id": "SM", "value": 0.1 },
+        { "id": "ST", "value": 0.1 },
+        { "id": "SA", "value": 97.1 },
+        { "id": "SN", "value": 93.5 },
+        { "id": "RS", "value": 3.7 },
+        { "id": "SC", "value": 1.1 },
+        { "id": "SL", "value": 96.1 },
+        { "id": "SG", "value": 14.9 },
+        { "id": "SX", "value": 0.1 },
+        { "id": "SK", "value": 0.2 },
+        { "id": "SI", "value": 8.5 },
+        { "id": "SB", "value": 95 },
+        { "id": "SO", "value": 93.5 },
+        { "id": "ZA", "value": 44.7 },
+        { "id": "SS", "value": 23.6 },
+        { "id": "ES", "value": 6.6 },
+        { "id": "LK", "value": 8.5 },
+        { "id": "SD", "value": 39.4 },
+        { "id": "SR", "value": 15.9 },
+        { "id": "SE", "value": 5.1 },
+        { "id": "CH", "value": 5.9 },
+        { "id": "SY", "value": 92.8 },
+        { "id": "TW", "value": 8.3 },
+        { "id": "TJ", "value": 99 },
+        { "id": "TZ", "value": 72 },
+        { "id": "TH", "value": 23.4 },
+        { "id": "TL", "value": 6.4 },
+        { "id": "TG", "value": 95.2 },
+        { "id": "TK", "value": 95 },
+        { "id": "TO", "value": 95 },
+        { "id": "TT", "value": 5.8 },
+        { "id": "TN", "value": 99.8 },
+        { "id": "TR", "value": 98.6 },
+        { "id": "TM", "value": 93.4 },
+        { "id": "TC", "value": 0.1 },
+        { "id": "TV", "value": 95 },
+        { "id": "UG", "value": 26.7 },
+        { "id": "UA", "value": 2.3 },
+        { "id": "AE", "value": 76 },
+        { "id": "GB", "value": 20.7 },
+        { "id": "UR", "value": 0.6 },
+        { "id": "UZ", "value": 96.5 },
+        { "id": "VU", "value": 95 },
+        { "id": "VE", "value": 0.2 },
+        { "id": "VG", "value": 1.2 },
+        { "id": "VI", "value": 0.6 },
+        { "id": "WF", "value": 0.1 },
+        { "id": "EH", "value": 99.6 },
+        { "id": "YE", "value": 99 },
+        { "id": "ZM", "value": 12.8 },
+        { "id": "ZW", "value": 9.2 },
+        { "id": "SJ", "value": "UNKNOWN" },
+        { "id": "UY", "value": 0.6 },
+        { "id": "AQ", "value": "LITERALLY ANTARTICA" },
+        { "id": "CA", "value": 31.9 },
+                
+
+        
+        // Add more data for other countries
+    ];
+
+    polygonSeries.data = data;
+
+    // Configure series
+    var polygonTemplate = polygonSeries.mapPolygons.template;
+    polygonTemplate.tooltipText = "{name}: {value}%";
+    polygonTemplate.fill = am4core.color("#8B0000"); // Default color
+
+    // Set up heat rule
+    polygonSeries.heatRules.push({
+        "property": "fill",
+        "target": polygonSeries.mapPolygons.template,
+        "min": am4core.color("#74B266"),
+        "max": am4core.color("#8B0000"),
+        
+        "dataField": "value"
+    });
+});
+    </script>
 </html>
