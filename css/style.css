@@ -299,3 +299,21 @@ input[type="text"]:focus {
     border-color: #007bff;
     outline: none;
 }
+    .freezeHeader {
+        position: sticky;
+        top: 0;
+        background-color: white;
+        z-index: 1;
+    }
+
+    .freezeColumn {
+        position: sticky;
+        left: 0;
+        background-color: white;
+        z-index: 1;
+    }
+
+    .scrollable {
+        overflow: auto;
+        max-height: 400px; /* Adjust height as needed */
+    }
