@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U.S.A. Circumcision Statistics</title>
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/geodata/worldLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+</head>
+<body>
+    <header class="top-header">
+        <div class="topnav">
+            <nav class="navbar navbar-dark bg-dark">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">World Statistics</a>            
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="usaStats.html">U.S.A. Statistics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="canadaStats.html">Canadian Statistics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="australiaStats.html">Australian Statistics</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <h2>U.S.A. Circumcision Statistics and Estimates</h2>
+    <div id="chartdiv" style="width: 100%; height: 500px;"></div>
+
+    <h4>Note: If data is not available for a state, it's represented as gray on the map. This is no indication of circumcision rate in these states</h4>
+<input type="text" id="searchInput" placeholder="Search for a state..." onkeyup="searchTable()">
+<table id="dataTable">
+    <tr class="freezeHeader">
+        <th class="sort-btn">State</th>
+        <th class="sort-btn">Total Population</th>
+        <th class="sort-btn">Male Percentage</th>
+        <th class="sort-btn">Male Population</th>
+        <th class="sort-btn">Circumcised Male Population</th>
+        <th class="sort-btn">Circumcision Rate</th>
+    </tr>
+    <tr>
+        <td>California</td>
+        <td>38,965,193</td>
+        <td>49%</td>
+        <td></td>
+        <td></td>
+        <td>23%</td>
+    </tr>
+    <tr>
+        <td>Texas</td>
+        <td>38,965,193</td>
+        <td>50%</td>
+        <td></td>
+        <td></td>
+        <td>51%</td>
+    </tr>
+    <tr>
+        <td>Florida</td>
+        <td>22,610,726</td>
+        <td>48%</td>
+        <td></td>
+        <td></td>
+        <td>31%</td>
+    </tr>
+    <tr>
+        <td>New York</td>
+        <td>19,571,216</td>
+        <td>48%</td>
+        <td></td>
+        <td></td>
+        <td>58%</td>
+    </tr>
+    <tr>
+        <td>Pennsylvania</td>
+        <td>12,961,683</td>
+        <td>49%</td>
+        <td></td>
+        <td></td>
+        <td>79%</td>
+    </tr>
+    <tr>
+        <td>Illinois</td>
+        <td>12,549,689</td>
+        <td>49%</td>
+        <td></td>
+        <td></td>
+        <td>63%</td>
+    </tr>
+    <tr>
+        <td>Ohio</td>
+        <td>11,785,935</td>
+        <td>49%</td>
+        <td></td>
+        <td></td>
+        <td>84%</td>
+    </tr>
+    <tr>
+        <td>Georgia</td>
+        <td>11,029,227</td>
+        <td>48%</td>
+        <td></td>
+        <td></td>
+        <td>72%</td>
+    </tr>
+    <tr>
+        <td>North Carolina</td>
+        <td>10,835,491</td>
+        <td>48%</td>
+        <td></td>
+        <td></td>
+        <td>50%</td>
+    </tr>
+    <tr>
+        <td>Michigan</td>
+        <td>10,037,261</td>
+        <td>49%</td>
+        <td></td>
+        <td></td>
+        <td>84%</td>
+    </tr>
+    <tr>
+        <td>New Jersey</td>
+        <td>9,290,841</td>
+        <td>49%</td>
+        <td></td>
+        <td></td>
+        <td>65%</td>
+    </tr>
+    <tr>
+        <td>Virginia</td>
+        <td>8,715,698</td>
+        <td>49%</td>
+        <td></td>
+        <td></td>
+        <td>74%</td>
+    </tr>
+    <tr>
+        <td>Washington (State)</td>
+        <td>7,812,880</td>
+        <td>49%</td>
+        <td></td>
+        <td></td>
+        <td>10%</td>
+    </tr>
+    <tr>
+        <td>Arizona</td>
+        <td>7,431,344</td>
+        <td>50%</td>
+        <td></td>
+        <td></td>
+        <td>16%</td>
+    </tr>
+    <tr>
+        <td>Tennessee</td>
+        <td>7,126,489</td>
+        <td>49%</td>
+        <td></td>
+        <td></td>
+        <td>74%</td>
+    </tr>
+    <tr>
+        <td>Massachusetts</td>
+        <td>7,001,399</td>
+        <td>48%</td>
+        <td></td>
+        <td></td>
+        <td>65%</td>
+    </tr>
+    <tr>
+        <td>Indiana</td>
+        <td>6,862,199</td>
+        <td>48%</td>
+        <td></td>
+        <td></td>
+        <td>83%</td>
+    </tr>
+    <tr>
+        <td>Missouri</td>
+        <td>6,196,156</td>
+        <td>49%</td>
+        <td></td>
+        <td></td>
+        <td>75%</td>
+    </tr>
+    <tr>
+        <td>Maryland</td>
+        <td>6,180,253</td>
+        <td>49%</td>
+        <td></td>
+        <td></td>
+        <td>66%</td>
+    </tr>
+    <tr>
+        <td>Wisconsin</td>
+        <td>5,910,955</td>
+        <td>49%</td>
+        <td></td>
+        <td></td>
+        <td>81%</td>
+    </tr>
+    <tr>
+        <td>Colorado</td>
+        <td>5,877,610</td>
+        <td>50%</td>
+        <td></td>
+        <td></td>
+        <td>56%</td>
+    </tr>
+    <tr>
+        <td>Minnesota</td>
+        <td>5,737,915</td>
+        <td>50%</td>
+        <td></td>
+        <td></td>
+        <td>59%</td>
+    </tr>
+    <tr>
+        <td>South Carolina</td>
+        <td>5,373,555</td>
+        <td>48%</td>
+        <td></td>
+        <td></td>
+        <td>72%</td>
+    </tr>
+    <tr>
+        <td>Alabama</td>
+        <td>5,108,468</td>
+        <td>48%</td>
+        <td></td>
+        <td></td>
+        <td>UNKNOWN</td>
+    </tr>
+    <tr>
+        <td>Louisiana</td>
+        <td>4,573,749</td>
+        <td>48%</td>
+        <td></td>
+        <td></td>
+        <td>45%</td>
+    </tr>
+    <tr>
+        <td>Kentucky</td>
+        <td>7,812,880</td>
+        <td>49%</td>
+        <td></td>
+        <td></td>
+        <td>86%</td>
+    </tr>
+    <tr>
+        <td>Oregon</td>
+        <td>4,233,358</td>
+        <td>50%</td>
+        <td></td>
+        <td></td>
+        <td>17%</td>
+    </tr>
+    <tr>
+        <td>Oklahoma</td>
+        <td>4,053,824</td>
+        <td>48%</td>
+        <td></td>
+        <td></td>
+        <td>75%</td>
+    </tr>
+    <tr>
+        <td>Connecticut</td>
+        <td>3,617,176</td>
+        <td>49%</td>
+        <td></td>
+        <td></td>
+        <td>71%</td>
+    </tr>
+    <tr>
+        <td>Utah</td>
+        <td>3,417,734/td>
+        <td>48%</td>
+        <td></td>
+        <td></td>
+        <td>33%</td>
+    </tr>
+    <tr>
+        <td>Iowa</td>
+        <td>3,207,004</td>
+        <td>50%</td>
+        <td></td>
+        <td></td>
+        <td>81%</td>
+    </tr>
+    <tr>
+        <td>Nevada</td>
+        <td>3,194,176</td>
+        <td>50%</td>
+        <td></td>
+        <td></td>
+        <td>10%</td>
+    </tr>
+    <tr>
+        <td>Arkansas</td>
+        <td>3,067,732</td>
+        <td>49%</td>
+        <td></td>
+        <td></td>
+        <td>67%</td>
+    </tr>
+    <tr>
+        <td>Kansas</td>
+        <td>2,940,546</td>
+        <td>49%</td>
+        <td></td>
+        <td></td>
+        <td>73%</td>
+    </tr>
+    <tr>
+        <td>Mississippi</td>
+        <td>2,939,690</td>
+        <td>48%</td>
+        <td></td>
+        <td></td>
+        <td>UNKNOWN</td>
+    </tr>
+    <tr>
+        <td>New Mexico</td>
+        <td>2,114,371</td>
+        <td>50%</td>
+        <td></td>
+        <td></td>
+        <td>47%</td>
+    </tr>
+    <tr>
+        <td>Nebraska</td>
+        <td>1,978,379</td>
+        <td>49%</td>
+        <td></td>
+        <td></td>
+        <td>75%</td>
+    </tr>
+    <tr>
+        <td>Idaho</td>
+        <td>1,964,726</td>
+        <td>49%</td>
+        <td></td>
+        <td></td>
+        <td>UNKNOWN</td>
+    </tr>
+    <tr>
+        <td>West Virginia</td>
+        <td>1,770,071</td>
+        <td>49%</td>
+        <td></td>
+        <td></td>
+        <td>91%</td>
+    </tr>
+    <tr>
+        <td>Hawaii</td>
+        <td>1,435,138</td>
+        <td>50%</td>
+        <td></td>
+        <td></td>
+        <td>77%</td>
+    </tr>
+    <tr>
+        <td>New Hampshire</td>
+        <td>1,402,054</td>
+        <td>50%</td>
+        <td></td>
+        <td></td>
+        <td>76%</td>
+    </tr>
+    <tr>
+        <td>Maine</td>
+        <td>1,395,722</td>
+        <td>49%</td>
+        <td></td>
+        <td></td>
+        <td>70%</td>
+    </tr>
+    <tr>
+        <td>Montana</td>
+        <td>1,132,812</td>
+        <td>50%</td>
+        <td></td>
+        <td></td>
+        <td>75%</td>
+    </tr>
+    <tr>
+        <td>Rhode Island</td>
+        <td>1,095,9629</td>
+        <td>49%</td>
+        <td></td>
+        <td></td>
+        <td>75%</td>
+    </tr>
+    <tr>
+        <td>Delaware</td>
+        <td>1,031,890</td>
+        <td>48%</td>
+        <td></td>
+        <td></td>
+        <td>UNKNOWN</td>
+    </tr>
+    <tr>
+        <td>South Dakota</td>
+        <td>919,318</td>
+        <td>50%</td>
+        <td></td>
+        <td></td>
+        <td>77%</td>
+    </tr>
+    <tr>
+        <td>North Dakota</td>
+        <td>783,926</td>
+        <td>50%</td>
+        <td></td>
+        <td></td>
+        <td>77%</td>
+    </tr>
+    <tr>
+        <td>Alaska</td>
+        <td>733,406</td>
+        <td>51%</td>
+        <td></td>
+        <td></td>
+        <td>UNKNOWN</td>
+    </tr>
+    <tr>
+        <td>Vermont</td>
+        <td>647,464</td>
+        <td>49%</td>
+        <td></td>
+        <td></td>
+        <td>67%</td>
+    </tr>
+    <tr>
+        <td>Wyoming</td>
+        <td>Nebraska</td>
+        <td>49%</td>
+        <td></td>
+        <td></td>
+        <td>75%</td>
+    </tr>
+    
+    <!-- Add more rows for each state -->
+
+
+    <!-- Add more rows for each state -->
+</table>
+    <h2>References</h2>
+    <h4>U.S. Economic Development Administration. (n.d.). Population Estimate for 2023. StatsAmerica. <a href="https://www.statsamerica.org/sip/rank_list.aspx?rank_label=pop1">https://www.statsamerica.org/sip/rank_list.aspx?rank_label=pop1</a></h4>
+    <h4>State population demographics by age and gender. (2013). Ballotpedia. <a href="https://ballotpedia.org/State_population_demographics_by_age_and_gender">https://ballotpedia.org/State_population_demographics_by_age_and_gender</a> </h4>
+    <h4>Circumcision Statistics. (n.d.). MGMbill.org. Retrieved March 26, 2024, from <a href="http://www.mgmbill.org/statistics.html">http://www.mgmbill.org/statistics.html</a></h4>
+
+</body>
+<script>
+function sortTable(columnIndex) {
+    var table, rows, switching, i, x, y, shouldSwitch, direction, switchcount = 0;
+    table = document.getElementById("dataTable");
+    switching = true;
+    // Set the sorting direction to ascending
+    direction = "asc";
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) {
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("td")[columnIndex];
+            y = rows[i + 1].getElementsByTagName("td")[columnIndex];
+            if (direction === "asc") {
+                if (compareValues(x.innerHTML, y.innerHTML) > 0) {
+                    shouldSwitch = true;
+                    break;
+                }
+            } else if (direction === "desc") {
+                if (compareValues(x.innerHTML, y.innerHTML) < 0) {
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+        }
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            switchcount++;
+        } else {
+            if (switchcount === 0 && direction === "asc") {
+                direction = "desc";
+                switching = true;
+            }
+        }
+    }
+}
+    function calculateStatePopulation() {
+    var table = document.getElementById("dataTable");
+    var rows = table.getElementsByTagName("tr");
+    for (var i = 1; i < rows.length; i++) {
+        var row = rows[i];
+        var totalPopulation = parseInt(row.cells[1].innerText.replace(/,/g, ""));
+        var malePercentage = parseFloat(row.cells[2].innerText.replace("%", "")); // Remove percentage symbol
+
+        var malePopulation = Math.round((malePercentage / 100) * totalPopulation);
+
+        row.cells[3].innerText = malePopulation.toLocaleString();
+
+        var circumcisionRate = parseFloat(row.cells[5].innerText.replace("%", "")); // Remove percentage symbol
+
+        var circumcisedMales = Math.round((circumcisionRate / 100) * malePopulation);
+
+        row.cells[4].innerText = circumcisedMales.toLocaleString();
+    }
+}
+
+
+function compareValues(x, y) {
+    if (isNumeric(x) && isNumeric(y)) {
+        return parseFloat(x) - parseFloat(y);
+    } else if (x.toLowerCase() === 'unknown') {
+        return 1;
+    } else if (y.toLowerCase() === 'unknown') {
+        return -1;
+    } else if (isNaN(x) && isNaN(y)) {
+        return 0;
+    } else if (isNaN(x)) {
+        return 1;
+    } else if (isNaN(y)) {
+        return -1;
+    } else {
+        return x.localeCompare(y);
+    }
+}
+
+function isNumeric(value) {
+    return !isNaN(parseFloat(value)) && isFinite(value);
+}
+
+
+function calculateContinentTotals() {
+    var continentTotals = {};
+    var rows = document.querySelectorAll("#dataTable tbody tr");
+    rows.forEach(function(row) {
+        var continent = row.children[1].textContent.trim();
+        if (!continentTotals[continent]) {
+            continentTotals[continent] = {
+                totalPopulation: 0,
+                malePopulation: 0,
+                femalePopulation: 0,
+                circumcisedMalePopulation: 0,
+                circumcisedFemalePopulation: 0
+            };
+        }
+        continentTotals[continent].totalPopulation += parseInt(row.children[2].textContent.replace(/,/g, ''), 10);
+        continentTotals[continent].malePopulation += parseInt(row.children[4].textContent.replace(/,/g, ''), 10);
+        continentTotals[continent].femalePopulation += parseInt(row.children[5].textContent.replace(/,/g, ''), 10);
+        
+        var circumcisedMale = parseInt(row.children[6].textContent.replace(/,/g, ''), 10);
+        if (!isNaN(circumcisedMale)) {
+            continentTotals[continent].circumcisedMalePopulation += circumcisedMale;
+        }
+        
+        var circumcisedFemale = parseInt(row.children[7].textContent.replace(/,/g, ''), 10);
+        if (!isNaN(circumcisedFemale)) {
+            continentTotals[continent].circumcisedFemalePopulation += circumcisedFemale;
+        }
+    });
+    
+    var continentTotalsElement = document.getElementById("continentTotals");
+    for (var continent in continentTotals) {
+        var newRow = continentTotalsElement.insertRow(-1);
+        newRow.innerHTML = `
+            <td>${continent}</td>
+            <td>${continentTotals[continent].totalPopulation.toLocaleString()}</td>
+            <td>${continentTotals[continent].malePopulation.toLocaleString()}</td>
+            <td>${continentTotals[continent].femalePopulation.toLocaleString()}</td>
+            <td>${continentTotals[continent].circumcisedMalePopulation.toLocaleString()}</td>
+            <td>${continentTotals[continent].circumcisedFemalePopulation.toLocaleString()}</td>
+        `;
+    }
+    // Remove the first row (header row)
+    continentTotalsElement.deleteRow(1);
+}
+
+
+
+
+function searchTable() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("searchInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("dataTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+
+function filterTable() {
+    var select, filter, table, tr, td, i, txtValue;
+    select = document.getElementById("continentFilter");
+    filter = select.value.toUpperCase();
+    table = document.getElementById("dataTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1]; // Assuming continent is in the second column
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (filter === "ALL" || txtValue.toUpperCase() === filter) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+    
+
+window.onload = function() {
+    calculateStatePopulation();
+};
+</script>
+<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/geodata/usaLow.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7328745136727655"
+ crossorigin="anonymous"></script>
+<script>
+am4core.ready(function() {
+    // Create chart instance
+    var chart = am4core.create("chartdiv", am4maps.MapChart);
+
+    // Set map definition
+    chart.geodata = am4geodata_usaLow;
+
+    // Set projection
+    chart.projection = new am4maps.projections.AlbersUsa();
+
+    // Set background color
+    chart.background.fill = am4core.color("#0080ff"); // Light gray
+
+    // Create map polygon series for states
+    var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+    polygonSeries.useGeodata = true;
+
+    // Set up data for states
+    var data = [
+        { "id": "US-CA", "value": 23 }, // Example for California, replace with your data
+        { "id": "US-TX", "value": 51 },   // Example for Texas, replace with your data
+        { "id": "US-FL", "value": 31 },   // Example for Texas, replace with your data
+        { "id": "US-NY", "value": 58 },   // Example for Texas, replace with your data
+        { "id": "US-PA", "value": 79 },   // Example for Texas, replace with your data
+        { "id": "US-IL", "value": 63 },   // Example for Texas, replace with your data
+        { "id": "US-OH", "value": 84 },   // Example for Texas, replace with your data
+        { "id": "US-GA", "value": 72 },   // Example for Texas, replace with your data
+        { "id": "US-NC", "value": 50 },   // Example for Texas, replace with your data
+        { "id": "US-MI", "value": 84 },   // Example for Texas, replace with your data
+        { "id": "US-NJ", "value": 65 },   // Example for Texas, replace with your data
+        { "id": "US-VA", "value": 74 },   // Example for Texas, replace with your data
+        { "id": "US-WA", "value": 10 },   // Example for Texas, replace with your data
+        { "id": "US-AZ", "value": 16 },   // Example for Texas, replace with your data
+        { "id": "US-TN", "value": 74 },   // Example for Texas, replace with your data
+        { "id": "US-MA", "value": 65 },   // Example for Texas, replace with your data
+        { "id": "US-IN", "value": 83 },   // Example for Texas, replace with your data
+        { "id": "US-MO", "value": 75 },   // Example for Texas, replace with your data
+        { "id": "US-MD", "value": 66 },   // Example for Texas, replace with your data
+        { "id": "US-WI", "value": 81 },   // Example for Texas, replace with your data
+        { "id": "US-CO", "value": 56 },   // Example for Texas, replace with your data
+        { "id": "US-MN", "value": 59 },   // Example for Texas, replace with your data
+        { "id": "US-SC", "value": 72 },   // Example for Texas, replace with your data
+        { "id": "US-AL", "value": "UNKNOWN" },   // Example for Texas, replace with your data
+        { "id": "US-KY", "value": 86 },   // Example for Texas, replace with your data
+        { "id": "US-OR", "value": 17 },   // Example for Texas, replace with your data
+        { "id": "US-OK", "value": 75 },   // Example for Texas, replace with your data
+        { "id": "US-CT", "value": 71 },   // Example for Texas, replace with your data
+        { "id": "US-UT", "value": 33 },   // Example for Texas, replace with your data
+        { "id": "US-IA", "value": 81 },   // Example for Texas, replace with your data
+        { "id": "US-NV", "value": 10 },   // Example for Texas, replace with your data
+        { "id": "US-AR", "value": 67 },   // Example for Texas, replace with your data
+        { "id": "US-KS", "value": 73 },   // Example for Texas, replace with your data
+        { "id": "US-MS", "value": "UNKNOWN" },   // Example for Texas, replace with your data
+        { "id": "US-NM", "value": 47 },   // Example for Texas, replace with your data
+        { "id": "US-NE", "value": 75 },   // Example for Texas, replace with your data
+        { "id": "US-ID", "value": "UNKNOWN" },   // Example for Texas, replace with your data
+        { "id": "US-WV", "value": 47 },   // Example for Texas, replace with your data
+        { "id": "US-NM", "value": 91 },   // Example for Texas, replace with your data
+        { "id": "US-HI", "value": 77 },   // Example for Texas, replace with your data
+        { "id": "US-NH", "value": 76 },   // Example for Texas, replace with your data
+        { "id": "US-ME", "value": 70 },   // Example for Texas, replace with your data
+        { "id": "US-MT", "value": 75 },   // Example for Texas, replace with your data
+        { "id": "US-RI", "value": 75 },   // Example for Texas, replace with your data
+        { "id": "US-DE", "value": "UNKNOWN" },   // Example for Texas, replace with your data
+        { "id": "US-SD", "value": 77 },   // Example for Texas, replace with your data
+        { "id": "US-ND", "value": 77 },   // Example for Texas, replace with your data
+        { "id": "US-AK", "value": "UNKNOWN" },   // Example for Texas, replace with your data
+        { "id": "US-VT", "value": 67 },   // Example for Texas, replace with your data
+        { "id": "US-WY", "value": 75 },   // Example for Texas, replace with your data
+        
+
+        // Add data for all other states
+    ];
+
+    // Populate series with data
+    polygonSeries.data = data;
+
+    // Configure series
+    var polygonTemplate = polygonSeries.mapPolygons.template;
+    polygonTemplate.tooltipText = "{name}: {value}%";
+    polygonTemplate.fill = am4core.color("#8B0000"); // Default color
+
+    // Set up heat rule
+    polygonSeries.heatRules.push({
+        "property": "fill",
+        "target": polygonSeries.mapPolygons.template,
+        "min": am4core.color("#74B266"),
+        "max": am4core.color("#8B0000"),
+        "dataField": "value"
+    });
+// Set fill color for "UNKNOWN" value
+polygonTemplate.adapter.add("fill", function(fill, target) {
+    var data = target.dataItem.dataContext;
+    if (data && data.value === "UNKNOWN") {
+        return am4core.color("#808080"); // Grey color for "UNKNOWN"
+    }
+    return fill;
+});
+});
+</script>
+</html>

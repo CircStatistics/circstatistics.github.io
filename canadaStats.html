@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canadian Circumcision Statistics</title>
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/geodata/worldLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+</head>
+<body>
+    <header class="top-header">
+        <div class="topnav">
+            <nav class="navbar navbar-dark bg-dark">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">World Statistics</a>            
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="usaStats.html">U.S.A. Statistics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="canadaStats.html">Canadian Statistics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="australiaStats.html">Australian Statistics</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <h2>Canadian Circumcision Statistics and Estimates</h2>
+    <div id="chartdiv" style="width: 100%; height: 500px;"></div>
+
+    <h4>Note: If data is not available for a province, it's represented as gray on the map. This is no indication of circumcision rate in these provinces</h4>
+<input type="text" id="searchInput" placeholder="Search for a province..." onkeyup="searchTable()">
+<table id="dataTable">
+    <tr class="freezeHeader">
+        <th class="sort-btn">Province</th>
+        <th class="sort-btn">Total Population</th>
+        <th class="sort-btn">Male Percentage</th>
+        <th class="sort-btn">Male Population</th>
+        <th class="sort-btn">Circumcised Male Population</th>
+        <th class="sort-btn">Circumcision Rate</th>
+    </tr>
+    <tr>
+        <td>Newfoundland and Labrador</td>
+        <td>538,605</td>
+        <td>49.5%</td>
+        <td></td>
+        <td></td>
+        <td>UNKNOWN</td>
+    </tr>
+    <tr>
+        <td>Prince Edward Island</td>
+        <td>173,787</td>
+        <td>49%</td>
+        <td></td>
+        <td></td>
+        <td>39.2%</td>
+    </tr>
+    <tr>
+        <td>Nova Scotia</td>
+        <td>1,058,694</td>
+        <td>6.8%</td>
+        <td></td>
+        <td></td>
+        <td>31%</td>
+    </tr>
+    <tr>
+        <td>New Brunswick</td>
+        <td>834,691</td>
+        <td>49%</td>
+        <td></td>
+        <td></td>
+        <td>18%</td>
+    </tr>
+    <tr>
+        <td>Quebec</td>
+        <td>8,874,683</td>
+        <td>50%</td>
+        <td></td>
+        <td></td>
+        <td>12.3%</td>
+    </tr>
+    <tr>
+        <td>Ontario</td>
+        <td>15,608,369</td>
+        <td>50%</td>
+        <td></td>
+        <td></td>
+        <td>43.7%</td>
+    </tr>
+    <tr>
+        <td>Manitoba</td>
+        <td>1,454,902</td>
+        <td>50.5%</td>
+        <td></td>
+        <td></td>
+        <td>31.6%</td>
+    </tr>
+    <tr>
+        <td>Saskatchewan</td>
+        <td>1,209,107</td>
+        <td>50%</td>
+        <td></td>
+        <td></td>
+        <td>35.6%</td>
+    </tr>
+    <tr>
+        <td>Alberta</td>
+        <td>4,695,290</td>
+        <td>50%</td>
+        <td></td>
+        <td></td>
+        <td>44.3%</td>
+    </tr>
+    <tr>
+        <td>British Columbia</td>
+        <td>5,519,013</td>
+        <td>49.5%</td>
+        <td></td>
+        <td></td>
+        <td>30.2%</td>
+    </tr>
+    <tr>
+        <td>Yukon</td>
+        <td>44,975</td>
+        <td>50%</td>
+        <td></td>
+        <td></td>
+        <td>UNKNOWN</td>
+    </tr>
+    <tr>
+        <td>Northwest Territories</td>
+        <td>44,972</td>
+        <td>51%</td>
+        <td></td>
+        <td></td>
+        <td>9.7%</td>
+    </tr>
+    <tr>
+        <td>Nunavut</td>
+        <td>40,673</td>
+        <td>50.5%</td>
+        <td></td>
+        <td></td>
+        <td>UNKNOWN</td>
+    </tr>
+    
+    <!-- Add more rows for each state -->
+
+
+    <!-- Add more rows for each state -->
+</table>
+    <h2>References</h2>
+    <h4>Statistics Canada. (2022, December 21). Population estimates on July 1st, by age and gender. Statistics Canada. <a href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1710000501">https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1710000501</a></h4>
+    <h4>S(2009). The Maternity Experiences Survey (MES) 2006-2007 [Review of The Maternity Experiences Survey (MES) 2006-2007]. Public Health Agency of Canada. <a href="https://www.phac-aspc.gc.ca/rhs-ssg/pdf/tab-eng.pdf">https://www.phac-aspc.gc.ca/rhs-ssg/pdf/tab-eng.pdf</a> </h4>
+
+</body>
+<script>
+function sortTable(columnIndex) {
+    var table, rows, switching, i, x, y, shouldSwitch, direction, switchcount = 0;
+    table = document.getElementById("dataTable");
+    switching = true;
+    // Set the sorting direction to ascending
+    direction = "asc";
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) {
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("td")[columnIndex];
+            y = rows[i + 1].getElementsByTagName("td")[columnIndex];
+            if (direction === "asc") {
+                if (compareValues(x.innerHTML, y.innerHTML) > 0) {
+                    shouldSwitch = true;
+                    break;
+                }
+            } else if (direction === "desc") {
+                if (compareValues(x.innerHTML, y.innerHTML) < 0) {
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+        }
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            switchcount++;
+        } else {
+            if (switchcount === 0 && direction === "asc") {
+                direction = "desc";
+                switching = true;
+            }
+        }
+    }
+}
+    function calculateStatePopulation() {
+    var table = document.getElementById("dataTable");
+    var rows = table.getElementsByTagName("tr");
+    for (var i = 1; i < rows.length; i++) {
+        var row = rows[i];
+        var totalPopulation = parseInt(row.cells[1].innerText.replace(/,/g, ""));
+        var malePercentage = parseFloat(row.cells[2].innerText.replace("%", "")); // Remove percentage symbol
+
+        var malePopulation = Math.round((malePercentage / 100) * totalPopulation);
+
+        row.cells[3].innerText = malePopulation.toLocaleString();
+
+        var circumcisionRate = parseFloat(row.cells[5].innerText.replace("%", "")); // Remove percentage symbol
+
+        var circumcisedMales = Math.round((circumcisionRate / 100) * malePopulation);
+
+        row.cells[4].innerText = circumcisedMales.toLocaleString();
+    }
+}
+
+
+function compareValues(x, y) {
+    if (isNumeric(x) && isNumeric(y)) {
+        return parseFloat(x) - parseFloat(y);
+    } else if (x.toLowerCase() === 'unknown') {
+        return 1;
+    } else if (y.toLowerCase() === 'unknown') {
+        return -1;
+    } else if (isNaN(x) && isNaN(y)) {
+        return 0;
+    } else if (isNaN(x)) {
+        return 1;
+    } else if (isNaN(y)) {
+        return -1;
+    } else {
+        return x.localeCompare(y);
+    }
+}
+
+function isNumeric(value) {
+    return !isNaN(parseFloat(value)) && isFinite(value);
+}
+
+
+function calculateContinentTotals() {
+    var continentTotals = {};
+    var rows = document.querySelectorAll("#dataTable tbody tr");
+    rows.forEach(function(row) {
+        var continent = row.children[1].textContent.trim();
+        if (!continentTotals[continent]) {
+            continentTotals[continent] = {
+                totalPopulation: 0,
+                malePopulation: 0,
+                femalePopulation: 0,
+                circumcisedMalePopulation: 0,
+                circumcisedFemalePopulation: 0
+            };
+        }
+        continentTotals[continent].totalPopulation += parseInt(row.children[2].textContent.replace(/,/g, ''), 10);
+        continentTotals[continent].malePopulation += parseInt(row.children[4].textContent.replace(/,/g, ''), 10);
+        continentTotals[continent].femalePopulation += parseInt(row.children[5].textContent.replace(/,/g, ''), 10);
+        
+        var circumcisedMale = parseInt(row.children[6].textContent.replace(/,/g, ''), 10);
+        if (!isNaN(circumcisedMale)) {
+            continentTotals[continent].circumcisedMalePopulation += circumcisedMale;
+        }
+        
+        var circumcisedFemale = parseInt(row.children[7].textContent.replace(/,/g, ''), 10);
+        if (!isNaN(circumcisedFemale)) {
+            continentTotals[continent].circumcisedFemalePopulation += circumcisedFemale;
+        }
+    });
+    
+    var continentTotalsElement = document.getElementById("continentTotals");
+    for (var continent in continentTotals) {
+        var newRow = continentTotalsElement.insertRow(-1);
+        newRow.innerHTML = `
+            <td>${continent}</td>
+            <td>${continentTotals[continent].totalPopulation.toLocaleString()}</td>
+            <td>${continentTotals[continent].malePopulation.toLocaleString()}</td>
+            <td>${continentTotals[continent].femalePopulation.toLocaleString()}</td>
+            <td>${continentTotals[continent].circumcisedMalePopulation.toLocaleString()}</td>
+            <td>${continentTotals[continent].circumcisedFemalePopulation.toLocaleString()}</td>
+        `;
+    }
+    // Remove the first row (header row)
+    continentTotalsElement.deleteRow(1);
+}
+
+
+
+
+function searchTable() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("searchInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("dataTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+
+function filterTable() {
+    var select, filter, table, tr, td, i, txtValue;
+    select = document.getElementById("continentFilter");
+    filter = select.value.toUpperCase();
+    table = document.getElementById("dataTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1]; // Assuming continent is in the second column
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (filter === "ALL" || txtValue.toUpperCase() === filter) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+    
+
+window.onload = function() {
+    calculateStatePopulation();
+};
+</script>
+<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/geodata/usaLow.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7328745136727655"
+ crossorigin="anonymous"></script>
+    <!-- Import required scripts -->
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/geodata/canadaLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+        <!-- Script to create the map -->
+    <script>
+        am4core.ready(function() {
+    // Check if am4geodata_canadaLow is loaded correctly
+    if (!am4geodata_canadaLow) {
+        console.error("am4geodata_canadaLow not loaded");
+        return;
+    }
+
+    // Create chart instance
+    var chart = am4core.create("chartdiv", am4maps.MapChart);
+
+    // Set map definition
+    chart.geodata = am4geodata_canadaLow;
+
+    // Set projection
+    chart.projection = new am4maps.projections.Miller();
+
+    // Set background color
+    chart.background.fill = am4core.color("#0080ff"); // Light gray
+
+    // Create map polygon series for provinces
+    var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+    polygonSeries.useGeodata = true;
+
+    // Set up data for provinces
+    var data = [
+        { "id": "CA-AB", "value": 44.3 }, // Alberta
+        { "id": "CA-BC", "value": 30.2 }, // British Columbia
+        { "id": "CA-MB", "value": 31.6 }, // Manitoba
+        { "id": "CA-NB", "value": 18 },   // New Brunswick
+        { "id": "CA-NL", "value": "UNKNOWN" }, // Newfoundland and Labrador
+        { "id": "CA-NS", "value": 31 },   // Nova Scotia
+        { "id": "CA-ON", "value": 43.7 }, // Ontario
+        { "id": "CA-PE", "value": 39.2 }, // Prince Edward Island
+        { "id": "CA-QC", "value": 12.3 }, // Quebec
+        { "id": "CA-SK", "value": 35.6 }, // Saskatchewan
+        { "id": "CA-NT", "value": 9.7 },  // Northwest Territories
+        { "id": "CA-NU", "value": "UNKNOWN" }, // Nunavut
+        { "id": "CA-YT", "value": "UNKNOWN" }  // Yukon
+
+        // Add more provinces as needed
+    ];
+
+    // Populate series with data
+    polygonSeries.data = data;
+
+    // Configure series
+    var polygonTemplate = polygonSeries.mapPolygons.template;
+    polygonTemplate.tooltipText = "{name}: {value}%";
+    polygonTemplate.fill = am4core.color("#8B0000"); // Default color
+
+    // Set up heat rule
+    polygonSeries.heatRules.push({
+        "property": "fill",
+        "target": polygonSeries.mapPolygons.template,
+        "min": am4core.color("#74B266"),
+        "max": am4core.color("#8B0000"),
+        "dataField": "value"
+    });
+
+    // Set fill color for "UNKNOWN" value
+    polygonTemplate.adapter.add("fill", function(fill, target) {
+        var data = target.dataItem.dataContext;
+        if (data && data.value === "UNKNOWN") {
+            return am4core.color("#808080"); // Grey color for "UNKNOWN"
+        }
+        return fill;
+    });
+});
+
+    </script>
+    
+</html>
