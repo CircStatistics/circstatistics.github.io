@@ -1,0 +1,3231 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Circumcision Statistics</title>
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/geodata/worldLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+</head>
+<body>
+    <header class="top-header">
+        <div class="topnav">
+            <nav class="navbar navbar-dark bg-dark">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">World Statistics</a>            
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="usaStats.html">U.S.A. Statistics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="canadaStats.html">Canadian Statistics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="australiaStats.html">Australian Statistics</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <h2>Global Circumcision Statistics and Estimates</h2>
+    <div id="chartdiv" style="width: 100%; height: 500px;"></div>
+
+    <h4>Note: if no data for the percentage of population by gender exists, the percentage of males is assumed to be 50%</h4>
+<input type="text" id="searchInput" placeholder="Search for a country..." onkeyup="searchTable()">
+<select id="continentFilter" onchange="filterTable()">
+    <option value="all">All Continents</option>
+    <option value="North America">North America</option>
+    <option value="South America">South America</option>
+    <option value="Europe">Europe</option>
+    <option value="Asia">Asia</option>
+    <option value="Africa">Africa</option>
+    <option value="Oceania">Oceania</option>
+</select>
+    <table id="dataTable">
+<tr class="freezeHeader">
+        <th class="sort-btn">Country</th>
+        <th class="sort-btn">Continent</th>
+        <th class="sort-btn">Total Population</th>
+        <th class="sort-btn" >Male Percentage</th>
+        <th class="sort-btn" >Male Population</th>
+        <th class="sort-btn" >Female Population</th>
+        <th class="sort-btn" >Circumcised Male Population</th>
+        <th class="sort-btn">Circumcised Female Population</th>
+        <th class="sort-btn">Circumcision Rate (Males)</th>
+        <th class="sort-btn">Circumcision Rate (Females)</th>
+    </tr>
+    
+    <tr>
+        <td>United States of America</td>
+        <td>North America</td>
+        <td>341,814,420</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>513,000</td>
+        <td>71.2%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Mexico</td>
+        <td>North America</td>
+        <td>129,388,467</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>15.4%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Canada</td>
+        <td>North America</td>
+        <td>39,107,046</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>31.9%</td>
+        <td>0%</td>
+    </tr>
+        <tr>
+        <td>Guatemala</td>
+        <td>North America</td>
+        <td>18,358,430</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Haiti</td>
+        <td>North America</td>
+        <td>11,867,030</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>6.2%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Dominican Republic</td>
+        <td>North America</td>
+        <td>11,434,005</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>13.7%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Cuba</td>
+        <td>North America</td>
+        <td>11,174,587</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Honduras</td>
+        <td>North America</td>
+        <td>10,759,406</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Nicaragua</td>
+        <td>North America</td>
+        <td>7,142,529</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>El Salvador</td>
+        <td>North America</td>
+        <td>6,396,289</td>
+        <td>48</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Costa Rica</td>
+        <td>North America</td>
+        <td>5,246,714</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.2%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Panama</td>
+        <td>North America</td>
+        <td>4,527,961</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>1%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Puerto Rico (U.S.A. Territory)</td>
+        <td>North America</td>
+        <td>3,268,802</td>
+        <td>47</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Jamaica</td>
+        <td>North America</td>
+        <td>2,824,738</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>14%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Trinidad and Tobago</td>
+        <td>North America</td>
+        <td>1,538,200</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>5.8%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Belize</td>
+        <td>North America</td>
+        <td>416,656</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Bahamas</td>
+        <td>North America</td>
+        <td>415,223</td>
+        <td>48</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.2%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Guadeloupe</td>
+        <td>North America</td>
+        <td>396,346</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>UNKNOWN</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Martinique</td>
+        <td>North America</td>
+        <td>366,416</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>UNKNOWN</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Barbados</td>
+        <td>North America</td>
+        <td>282,309</td>
+        <td>48</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.9%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Curacao</td>
+        <td>North America</td>
+        <td>192,965</td>
+        <td>48</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Saint Lucia</td>
+        <td>North America</td>
+        <td>180,805</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Grenada</td>
+        <td>North America</td>
+        <td>126,887</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.3%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Aruba</td>
+        <td>North America</td>
+        <td>106,177</td>
+        <td>47</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.5%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Saint Vincent and the Grenadines</td>
+        <td>North America</td>
+        <td>103,683</td>
+        <td>51</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>1.7%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>United States Virgin Islands</td>
+        <td>North America</td>
+        <td>98,055</td>
+        <td>47</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.6%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Antigua and Barbuda</td>
+        <td>North America</td>
+        <td>94,816</td>
+        <td>48</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.6%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Dominica</td>
+        <td>North America</td>
+        <td>73,368</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.2%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Cayman Islands</td>
+        <td>North America</td>
+        <td>69,885</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.2%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Bermuda</td>
+        <td>North America</td>
+        <td>63,935</td>
+        <td>48</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.8%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Greenland</td>
+        <td>North America</td>
+        <td>56,789</td>
+        <td>53</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Saint Kitts and Nevis</td>
+        <td>North America</td>
+        <td>47,847</td>
+        <td>48</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.3%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Turks and Caicos Islands</td>
+        <td>North America</td>
+        <td>46,431</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Sint Maarten</td>
+        <td>North America</td>
+        <td>44,309</td>
+        <td>54</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Saint Martin</td>
+        <td>North America</td>
+        <td>32,337</td>
+        <td>48</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>British Virgin Islands</td>
+        <td>North America</td>
+        <td>31,763</td>
+        <td>48</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>1.2%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Anguilla</td>
+        <td>North America</td>
+        <td>15,936</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.3%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Saint Barthelemy</td>
+        <td>North America</td>
+        <td>11,019</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Saint Pierre and Miquelon</td>
+        <td>North America</td>
+        <td>5,815</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.2%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Montserrat</td>
+        <td>North America</td>
+        <td>4,372</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Brazil</td>
+        <td>South America</td>
+        <td>217,637,297</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>1.3%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Colombia</td>
+        <td>South America</td>
+        <td>52,340,774</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>2.9%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Argentina</td>
+        <td>South America</td>
+        <td>46,057,866</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>2.9%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Peru</td>
+        <td>South America</td>
+        <td>34,683,444</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>3.7%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Venezuela</td>
+        <td>South America</td>
+        <td>29,395,334</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.3%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Chile</td>
+        <td>South America</td>
+        <td>19,658,839</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.2%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Ecuador</td>
+        <td>South America</td>
+        <td>18,377,367</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Bolivia</td>
+        <td>South America</td>
+        <td>12,567,336</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Paraguay</td>
+        <td>South America</td>
+        <td>6,947,270</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Uruguay</td>
+        <td>South America</td>
+        <td>3,423,316</td>
+        <td>48</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.6%</td>
+        <td>0%</td>
+    <tr>
+        <td>Guyana</td>
+        <td>South America</td>
+        <td>819,594</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>12</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Suriname</td>
+        <td>South America</td>
+        <td>628,785</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>15.9%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>French Guiana</td>
+        <td>South America</td>
+        <td>319,796</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>UNKNOWN</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Falkland Islands</td>
+        <td>South America</td>
+        <td>3,803</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    </tr>
+    <tr>
+        <td>Australia</td>
+        <td>Oceania</td>
+        <td>26,699,482</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>53,088</td>
+        <td>26.6%</td>
+        <td>0%</td>
+    </tr>
+        <tr>
+        <td>Papua New Guinea</td>
+        <td>Oceania</td>
+        <td>10,515,788</td>
+        <td>52</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>10.1%</td>
+        <td>0%</td>
+    </tr>
+        <tr>
+        <td>New Zealand</td>
+        <td>Oceania</td>
+        <td>5,269,939</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>33%</td>
+        <td>0%</td>
+    </tr>
+        <tr>
+        <td>Fiji</td>
+        <td>Oceania</td>
+        <td>943,072</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>55%</td>
+        <td>0%</td>
+    </tr>
+        <tr>
+        <td>Solomon Islands</td>
+        <td>Oceania</td>
+        <td>756,673</td>
+        <td>51</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>95%</td>
+        <td>0%</td>
+    </tr>
+        <tr>
+        <td>Vanuatu</td>
+        <td>Oceania</td>
+        <td>342,325</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>95%</td>
+        <td>0%</td>
+    </tr>
+        <tr>
+        <td>French Polynesia</td>
+        <td>Oceania</td>
+        <td>311,383</td>
+        <td>51</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>78%</td>
+        <td>0%</td>
+    </tr>
+        <tr>
+        <td>New Caledonia</td>
+        <td>Oceania</td>
+        <td>295,966</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>50%</td>
+        <td>0%</td>
+    </tr>
+        <tr>
+        <td>Samoa</td>
+        <td>Oceania</td>
+        <td>228,966</td>
+        <td>51</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>95%</td>
+        <td>0%</td>
+    </tr>
+        <tr>
+        <td>Guam</td>
+        <td>Oceania</td>
+        <td>174,114</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>95%</td>
+        <td>0%</td>
+    </tr>
+        <tr>
+        <td>Kiribati</td>
+        <td>Oceania</td>
+        <td>135,763</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    </tr>
+        <tr>
+        <td>Micronesia</td>
+        <td>Oceania</td>
+        <td>116,300</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    </tr>
+        <tr>
+        <td>Tonga</td>
+        <td>Oceania</td>
+        <td>108,683</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>95%</td>
+        <td>0%</td>
+    </tr>
+        <tr>
+        <td>Northern Mariana Islands</td>
+        <td>Oceania</td>
+        <td>50,025</td>
+        <td>54</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>90%</td>
+        <td>0%</td>
+    </tr>
+        <tr>
+        <td>American Samoa</td>
+        <td>Oceania</td>
+        <td>43,544</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>95%</td>
+        <td>0%</td>
+    </tr>
+        <tr>
+        <td>Marshall Islands</td>
+        <td>Oceania</td>
+        <td>42,415</td>
+        <td>51</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    </tr>
+        <tr>
+        <td>Palau</td>
+        <td>Oceania</td>
+        <td>18,051</td>
+        <td>52</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>95%</td>
+        <td>0%</td>
+    </tr>
+        <tr>
+        <td>Cook Islands</td>
+        <td>Oceania</td>
+        <td>17,072</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>95%</td>
+        <td>0%</td>
+    </tr>
+        <tr>
+        <td>Nauru</td>
+        <td>Oceania</td>
+        <td>12,884</td>
+        <td>51</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>95%</td>
+        <td>0%</td>
+    </tr>
+        <tr>
+        <td>Tuvalu</td>
+        <td>Oceania</td>
+        <td>11,478</td>
+        <td>51</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>95%</td>
+        <td>0%</td>
+    </tr>
+        <tr>
+        <td>Wallis and Futuna</td>
+        <td>Oceania</td>
+        <td>11,439</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    </tr>
+        <tr>
+        <td>Niue</td>
+        <td>Oceania</td>
+        <td>1,935</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>95%</td>
+        <td>0%</td>
+    </tr>
+        <tr>
+        <td>Tokelau</td>
+        <td>Oceania</td>
+        <td>1,915</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>95%</td>
+        <td>0%</td>
+        </tr>
+    <tr>
+        <td>India</td>
+        <td>Asia</td>
+        <td>1,441,719,852</td>
+        <td>52</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>13.5%</td>
+        <td>0%</td>
+     <tr>
+        <td>China</td>
+        <td>Asia</td>
+        <td>1,425,178,782</td>
+        <td>51</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>14%</td>
+        <td>0%</td>
+     <tr>
+        <td>Indonesia</td>
+        <td>Asia</td>
+        <td>279,798,049</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>92.5%</td>
+        <td>49.2%</td>
+     <tr>
+        <td>Pakistan</td>
+        <td>Asia</td>
+        <td>245,209,815</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>96.4%</td>
+        <td>0%</td>
+     <tr>
+        <td>Bangladesh</td>
+        <td>Asia</td>
+        <td>174,701,211</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>93.2%</td>
+        <td>0%</td>
+     <tr>
+        <td>Japan</td>
+        <td>Asia</td>
+        <td>122,631,432</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>9%</td>
+        <td>0%</td>
+     <tr>
+        <td>Philippines</td>
+        <td>Asia</td>
+        <td>119,106,224</td>
+        <td>51</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>91.7%</td>
+        <td>0%</td>
+     <tr>
+        <td>Vietnam</td>
+        <td>Asia</td>
+        <td>99,497,680</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.2%</td>
+        <td>0%</td>
+     <tr>
+        <td>Iran</td>
+        <td>Asia</td>
+        <td>89,809,781</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>99.7%</td>
+        <td>0%</td>
+     <tr>
+        <td>Turkey (Turkiye)</td>
+        <td>Asia</td>
+        <td>86,260,417</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>98.6%</td>
+        <td>0%</td>
+     <tr>
+        <td>Thailand</td>
+        <td>Asia</td>
+        <td>71,885,799</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>23.4%</td>
+        <td>0%</td>
+     <tr>
+        <td>Myanmar</td>
+        <td>Asia</td>
+        <td>54,964,694</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>3.5%</td>
+        <td>0%</td>
+     <tr>
+        <td>South Korea (Republic of Korea)</td>
+        <td>Asia</td>
+        <td>51,741,963</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>77%</td>
+        <td>0%</td>
+     <tr>
+        <td>Iraq</td>
+        <td>Asia</td>
+        <td>46,523,657</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>98.9%</td>
+        <td>7.4%</td>
+     <tr>
+        <td>Afghanistan</td>
+        <td>Asia</td>
+        <td>43,372,950</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>99.8%</td>
+        <td>0%</td>
+     <tr>
+        <td>Saudi Arabia</td>
+        <td>Asia</td>
+        <td>37,473,929</td>
+        <td>58</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>97.1%</td>
+        <td>0%</td>
+     <tr>
+        <td>Uzbekistan</td>
+        <td>Asia</td>
+        <td>35,673,804</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>96.5%</td>
+        <td>0%</td>
+     <tr>
+        <td>Yemen</td>
+        <td>Asia</td>
+        <td>35,219,853</td>
+        <td>51</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>99%</td>
+        <td>18.5%</td>
+     <tr>
+        <td>Malaysia</td>
+        <td>Asia</td>
+        <td>34,671,895</td>
+        <td>51</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>61.4%</td>
+        <td>0%</td>
+     <tr>
+        <td>Nepal</td>
+        <td>Asia</td>
+        <td>31,240,315</td>
+        <td>48</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>4.2%</td>
+        <td>0%</td>
+     <tr>
+        <td>North Korea (Democratic People's Republic of Korea)</td>
+        <td>Asia</td>
+        <td>26,244,582</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+     <tr>
+        <td>Syria</td>
+        <td>Asia</td>
+        <td>24,348,053</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>92.8%</td>
+        <td>0%</td>
+     <tr>
+        <td>Taiwan</td>
+        <td>Asia</td>
+        <td>23,950,214</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>8.3%</td>
+        <td>0%</td>
+     <tr>
+        <td>Sri Lanka</td>
+        <td>Asia</td>
+        <td>21,949,268</td>
+        <td>48</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>8.5%</td>
+        <td>0%</td>
+    <tr>
+        <td>Kazakhstan</td>
+        <td>Asia</td>
+        <td>19,828,165</td>
+        <td>48</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>56.4%</td>
+        <td>0%</td>
+    <tr>
+        <td>Cambodia</td>
+        <td>Asia</td>
+        <td>17,121,847</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>3.5%</td>
+        <td>0%</td>
+    <tr>
+        <td>Jordan</td>
+        <td>Asia</td>
+        <td>11,384,922</td>
+        <td>52</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>98.8%</td>
+        <td>0%</td>
+    <tr>
+        <td>Azerbaijan</td>
+        <td>Asia</td>
+        <td>10,462,904</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>98.5%</td>
+        <td>0%</td>
+    <tr>
+        <td>Tajikistan</td>
+        <td>Asia</td>
+        <td>10,331,513</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>99%</td>
+        <td>0%</td>
+    <tr>
+        <td>United Arab Emirates</td>
+        <td>Asia</td>
+        <td>9,591,853</td>
+        <td>69</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>76%</td>
+        <td>0%</td>
+    <tr>
+        <td>Israel</td>
+        <td>Asia</td>
+        <td>9,311,652</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>91.7%</td>
+        <td>0%</td>
+    <tr>
+        <td>Laos</td>
+        <td>Asia</td>
+        <td>7,736,681</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1</td>
+        <td>0%</td>
+    <tr>
+        <td>Hong Kong</td>
+        <td>Asia</td>
+        <td>7,496,681</td>
+        <td>46</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>28%</td>
+        <td>0%</td>
+    <tr>
+        <td>Kyrgyzstan</td>
+        <td>Asia</td>
+        <td>6,839,606</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>91.9%</td>
+        <td>0%</td>
+    <tr>
+        <td>Turkmenistan</td>
+        <td>Asia</td>
+        <td>6,598,071</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>93.4%</td>
+        <td>0%</td>
+    <tr>
+        <td>Singapore</td>
+        <td>Asia</td>
+        <td>6,052,709</td>
+        <td>52</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>14.9%</td>
+        <td>0%</td>
+    <tr>
+        <td>Palestine</td>
+        <td>Asia</td>
+        <td>5,494,963</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>99.9%</td>
+        <td>0%</td>
+    <tr>
+        <td>Lebanon</td>
+        <td>Asia</td>
+        <td>5,219,044</td>
+        <td>48</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>59.7%</td>
+        <td>0%</td>
+    <tr>
+        <td>Oman</td>
+        <td>Asia</td>
+        <td>4,713,553</td>
+        <td>61</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>87.7%</td>
+        <td>0%</td>
+    <tr>
+        <td>Kuwait</td>
+        <td>Asia</td>
+        <td>4,349,380</td>
+        <td>62</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>86.4%</td>
+        <td>0%</td>
+    <tr>
+        <td>Georgia (Country, not U.S. State)</td>
+        <td>Asia</td>
+        <td>3,717,425</td>
+        <td>47</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>UNKNOWN</td>
+        <td>0%</td>
+    <tr>
+        <td>Mongolia</td>
+        <td>Asia</td>
+        <td>3,493,629</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>4.4%</td>
+        <td>0%</td>
+    <tr>
+        <td>Armenia</td>
+        <td>Asia</td>
+        <td>2,777,979</td>
+        <td>45</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+     <tr>
+        <td>Qatar</td>
+        <td>Asia</td>
+        <td>2,737,061</td>
+        <td>73</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>77.5%</td>
+        <td>0%</td>
+     <tr>
+        <td>Bahrain</td>
+        <td>Asia</td>
+        <td>1,498,712</td>
+        <td>62</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>81.2%</td>
+        <td>0%</td>
+     <tr>
+        <td>Timor Leste</td>
+        <td>Asia</td>
+        <td>1,379,883</td>
+        <td>51</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>6.4%</td>
+        <td>0%</td>
+     <tr>
+        <td>Bhutan</td>
+        <td>Asia</td>
+        <td>792,382</td>
+        <td>53</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>1%</td>
+        <td>0%</td>
+     <tr>
+        <td>Macau</td>
+        <td>Asia</td>
+        <td>713,082</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+     <tr>
+        <td>Maldives</td>
+        <td>Asia</td>
+        <td>517,887</td>
+        <td>58</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>98.4%</td>
+        <td>12.9%</td>
+     <tr>
+        <td>Brunei</td>
+        <td>Asia</td>
+        <td>455,858</td>
+        <td>52</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>51.9%</td>
+        <td>0%</td>
+     <tr>
+        <td>Russia</td>
+        <td>Europe</td>
+        <td>143,957,079</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>10.9%</td>
+        <td>0%</td>
+     <tr>
+        <td>Germany</td>
+        <td>Europe</td>
+        <td>83,252,474</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>70,218</td>
+        <td>6.7%</td>
+        <td>0%</td>
+     <tr>
+        <td>United Kingdom</td>
+        <td>Europe</td>
+        <td>67,961,439</td>
+        <td>52</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>137,000</td>
+        <td>20.7%</td>
+        <td>0%</td>
+     <tr>
+        <td>France</td>
+        <td>Europe</td>
+        <td>64,881,830</td>
+        <td>48</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>125,000</td>
+        <td>14%</td>
+        <td>0%</td>
+     <tr>
+        <td>Italy</td>
+        <td>Europe</td>
+        <td>58,697,744</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>70,469</td>
+        <td>2.6%</td>
+        <td>0%</td>
+     <tr>
+        <td>Spain</td>
+        <td>Europe</td>
+        <td>47,473,373</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>15,907</td>
+        <td>6.6%</td>
+        <td>0%</td>
+    <tr>
+        <td>Poland</td>
+        <td>Europe</td>
+        <td>40,221,726</td>
+        <td>48</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>207</td>
+        <td>0.1%</td>
+        <td>0%</td>
+     <tr>
+        <td>Ukraine</td>
+        <td>Europe</td>
+        <td>37,937,821</td>
+        <td>46</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>2.3%</td>
+        <td>0%</td>
+     <tr>
+        <td>Romania</td>
+        <td>Europe</td>
+        <td>19,618,996</td>
+        <td>48</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>79</td>
+        <td>0.3%</td>
+        <td>0%</td>
+     <tr>
+        <td>Netherlands</td>
+        <td>Europe</td>
+        <td>17,671,125</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>41,000</td>
+        <td>5.7%</td>
+        <td>0%</td>
+     <tr>
+        <td>Belgium</td>
+        <td>Europe</td>
+        <td>11,715,774</td>
+        <td>52</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>17,575</td>
+        <td>22.6%</td>
+        <td>0%</td>
+     <tr>
+        <td>Sweden</td>
+        <td>Europe</td>
+        <td>10,673,669</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>38,939</td>
+        <td>5.1%</td>
+        <td>0%</td>
+     <tr>
+        <td>Czech Republic</td>
+        <td>Europe</td>
+        <td>10,503,734</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>312</td>
+        <td>0.1%</td>
+        <td>0%</td>
+     <tr>
+        <td>Greece</td>
+        <td>Europe</td>
+        <td>10,302,720</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>15,249</td>
+        <td>4.7%</td>
+        <td>0%</td>
+     <tr>
+        <td>Portugal</td>
+        <td>Europe</td>
+        <td>10,223,349</td>
+        <td>47</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>6,576</td>
+        <td>0.6%</td>
+        <td>0%</td>
+     <tr>
+        <td>Hungary</td>
+        <td>Europe</td>
+        <td>9,994,993</td>
+        <td>48</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>5,790</td>
+        <td>0.8%</td>
+        <td>0%</td>
+     <tr>
+        <td>Belarus</td>
+        <td>Europe</td>
+        <td>9,455,037</td>
+        <td>46</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.3%</td>
+        <td>0%</td>
+     <tr>
+        <td>Austria</td>
+        <td>Europe</td>
+        <td>8,977,139</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>7,036</td>
+        <td>5.8%</td>
+        <td>0%</td>
+     <tr>
+        <td>Switzerland</td>
+        <td>Europe</td>
+        <td>8,851,431</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>14,700</td>
+        <td>5.9%</td>
+        <td>0%</td>
+     <tr>
+        <td>Serbia</td>
+        <td>Europe</td>
+        <td>7,097,028</td>
+        <td>48</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>3.7%</td>
+        <td>0%</td>
+     <tr>
+        <td>Bulgaria</td>
+        <td>Europe</td>
+        <td>6,618,615</td>
+        <td>48</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>31</td>
+        <td>13.4%</td>
+        <td>0%</td>
+     <tr>
+        <td>Denmark</td>
+        <td>Europe</td>
+        <td>5,939,695</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>7,910</td>
+        <td>5.3%</td>
+        <td>0%</td>
+     <tr>
+        <td>Slovakia</td>
+        <td>Europe</td>
+        <td>5,702,832</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>57</td>
+        <td>0.2%</td>
+        <td>0%</td>
+     <tr>
+        <td>Finland</td>
+        <td>Europe</td>
+        <td>5,549,886</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>10,254</td>
+        <td>0.8%</td>
+        <td>0%</td>
+     <tr>
+        <td>Norway</td>
+        <td>Europe</td>
+        <td>5,514,477</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>17,058</td>
+        <td>3%</td>
+        <td>0%</td>
+    <tr>
+        <td>Ireland</td>
+        <td>Europe</td>
+        <td>5,089,478</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.9%</td>
+        <td>0%</td>
+    <tr>
+        <td>Croatia</td>
+        <td>Europe</td>
+        <td>3,986,627</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>112</td>
+        <td>1.3%</td>
+        <td>0%</td>
+    <tr>
+        <td>Moldova</td>
+        <td>Europe</td>
+        <td>3,329,865</td>
+        <td>48</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.5%</td>
+        <td>0%</td>
+    <tr>
+        <td>Boznia and Herzegovina</td>
+        <td>Europe</td>
+        <td>3,194,378</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>41.6%</td>
+        <td>0%</td>
+    <tr>
+        <td>Albania</td>
+        <td>Europe</td>
+        <td>2,826,020</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>47.7%</td>
+        <td>0%</td>
+    <tr>
+        <td>Lithuania</td>
+        <td>Europe</td>
+        <td>2,692,798</td>
+        <td>47</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.2%</td>
+        <td>0%</td>
+    <tr>
+        <td>Slovenia</td>
+        <td>Europe</td>
+        <td>2,118,965</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>69</td>
+        <td>8.5%</td>
+        <td>0%</td>
+    <tr>
+        <td>North Macedonia</td>
+        <td>Europe</td>
+        <td>2,082,706</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>UNKNOWN</td>
+        <td>0%</td>
+    <tr>
+        <td>Latvia</td>
+        <td>Europe</td>
+        <td>1,810,240</td>
+        <td>46</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>5</td>
+        <td>0.4%</td>
+        <td>0%</td>
+    <tr>
+        <td>Estonia</td>
+        <td>Europe</td>
+        <td>1,319,041</td>
+        <td>47</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>8</td>
+        <td>0.3%</td>
+        <td>0%</td>
+    <tr>
+        <td>Cyprus</td>
+        <td>Europe</td>
+        <td>1,268,467</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>1301</td>
+        <td>22.7%</td>
+        <td>0%</td>
+    <tr>
+        <td>Luxembourg</td>
+        <td>Europe</td>
+        <td>661,594</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>379</td>
+        <td>2.4%</td>
+        <td>0%</td>
+    <tr>
+        <td>Montenegro</td>
+        <td>Europe</td>
+        <td>626,102</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>18.5%</td>
+        <td>0%</td>
+    <tr>
+        <td>Malta</td>
+        <td>Europe</td>
+        <td>536,740</td>
+        <td>52</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>565</td>
+        <td>0.3%</td>
+        <td>0%</td>
+    <tr>
+        <td>Iceland</td>
+        <td>Europe</td>
+        <td>377,689</td>
+        <td>51</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    <tr>
+        <td>Jersey</td>
+        <td>Europe</td>
+        <td>112,843</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    <tr>
+        <td>Isle of Man</td>
+        <td>Europe</td>
+        <td>84,904</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.2%</td>
+        <td>0%</td>
+    <tr>
+        <td>Andorra</td>
+        <td>Europe</td>
+        <td>80,341</td>
+        <td>51</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>1.1%</td>
+        <td>0%</td>
+    <tr>
+        <td>Guernsey</td>
+        <td>Europe</td>
+        <td>63,788</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    <tr>
+        <td>Faroe Islands</td>
+        <td>Europe</td>
+        <td>53,444</td>
+        <td>52</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    <tr>
+        <td>Liechtenstein</td>
+        <td>Europe</td>
+        <td>39,822</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>4.8%</td>
+        <td>0%</td>
+    <tr>
+        <td>Monaco</td>
+        <td>Europe</td>
+        <td>36,157</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.5%</td>
+        <td>0%</td>
+    <tr>
+        <td>San Marino</td>
+        <td>Europe</td>
+        <td>33,614</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    <tr>
+        <td>Gibraltar</td>
+        <td>Europe</td>
+        <td>32,718</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>6%</td>
+        <td>0%</td>
+    <tr>
+        <td>Vatican City</td>
+        <td>Europe</td>
+        <td>526</td>
+        <td>95</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    <tr>
+        <td>Nigeria</td>
+        <td>Africa</td>
+        <td>229,152,217</td>
+        <td>51</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>98.9%</td>
+        <td>19.5%</td>
+    <tr>
+        <td>Ethiopia</td>
+        <td>Africa</td>
+        <td>129,719,719</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>92.2%</td>
+        <td>65.2%</td>
+    <tr>
+        <td>Egypt</td>
+        <td>Africa</td>
+        <td>114,484,252</td>
+        <td>51</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>94.7%</td>
+        <td>87.2%</td>
+    <tr>
+        <td>Democratic Republic of the Congo</td>
+        <td>Africa</td>
+        <td>105,625,114</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>97.2%</td>
+        <td>0%</td>
+    <tr>
+        <td>Tanzania</td>
+        <td>Africa</td>
+        <td>69,419,073</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>72%</td>
+        <td>10%</td>
+    <tr>
+        <td>South Africa</td>
+        <td>Africa</td>
+        <td>61,020,221</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>44.7%</td>
+        <td>0%</td>
+    <tr>
+        <td>Kenya</td>
+        <td>Africa</td>
+        <td>56,203,030</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>91.2%</td>
+        <td>21%</td>
+    <tr>
+        <td>Uganda</td>
+        <td>Africa</td>
+        <td>49,924,252</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>26.7%</td>
+        <td>0%</td>
+    <tr>
+        <td>Sudan</td>
+        <td>Africa</td>
+        <td>49,358,228</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>39.4%</td>
+        <td>86.1%</td>
+    <tr>
+        <td>Algeria</td>
+        <td>Africa</td>
+        <td>46,278,751</td>
+        <td>51</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>97.9%</td>
+        <td>0%</td>
+    <tr>
+        <td>Morocco</td>
+        <td>Africa</td>
+        <td>38,211,459</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>99.9%</td>
+        <td>0%</td>
+    <tr>
+        <td>Angola</td>
+        <td>Africa</td>
+        <td>37,804,634</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>57.5%</td>
+        <td>0%</td>
+    <tr>
+        <td>Mozanbique</td>
+        <td>Africa</td>
+        <td>34,858,402</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>47.4%</td>
+        <td>0%</td>
+    <tr>
+        <td>Ghana</td>
+        <td>Africa</td>
+        <td>34,777,522</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>91.6%</td>
+        <td>3.8%</td>
+    <tr>
+        <td>Madagascar</td>
+        <td>Africa</td>
+        <td>31,056,610</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>94.7%</td>
+        <td>0%</td>
+    <tr>
+        <td>Ivory Coast</td>
+        <td>Africa</td>
+        <td>29,603,302</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>96.7%</td>
+        <td>36.7%</td>
+    <tr>
+        <td>Cameroon</td>
+        <td>Africa</td>
+        <td>29,394,433</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>94%</td>
+        <td>1.4%</td>
+    <tr>
+        <td>Niger</td>
+        <td>Africa</td>
+        <td>28,238,972</td>
+        <td>51</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>95.5%</td>
+        <td>2%</td>
+    <tr>
+        <td>Mali</td>
+        <td>Africa</td>
+        <td>24,015,789</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>86%</td>
+        <td>88.6%</td>
+    <tr>
+        <td>Burkina Faso</td>
+        <td>Africa</td>
+        <td>23,840,247</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>UNKNOWN</td>
+        <td>75.8%</td>
+    <tr>
+        <td>Malawi</td>
+        <td>Africa</td>
+        <td>21,475,962</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>21.6%</td>
+        <td>0%</td>
+    <tr>
+        <td>Zambia</td>
+        <td>Africa</td>
+        <td>21,134,695</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>12.8%</td>
+        <td>0.7%</td>
+    <tr>
+        <td>Chad</td>
+        <td>Africa</td>
+        <td>18,847,148</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>73.5%</td>
+        <td>38.4%</td>
+    <tr>
+        <td>Somalia</td>
+        <td>Africa</td>
+        <td>18,706,922</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>93.5%</td>
+        <td>97.9%</td>
+    <tr>
+        <td>Senegal</td>
+        <td>Africa</td>
+        <td>18,221,567</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>93.5%</td>
+        <td>24%</td>
+    <tr>
+        <td>Zimbabwe</td>
+        <td>Africa</td>
+        <td>17,020,321</td>
+        <td>47</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>9.2%</td>
+        <td>0%</td>
+    <tr>
+        <td>Guinea</td>
+        <td>Africa</td>
+        <td>14,528,770</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>84.2%</td>
+        <td>94.5%</td>
+    <tr>
+        <td>Rwanda</td>
+        <td>Africa</td>
+        <td>14,414,910</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>13.3%</td>
+        <td>0%</td>
+    <tr>
+        <td>Benin</td>
+        <td>Africa</td>
+        <td>14,080,072</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>92.9%</td>
+        <td>9.2%</td>
+    <tr>
+        <td>Burundi</td>
+        <td>Africa</td>
+        <td>13,591,657</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>61.7%</td>
+        <td>0%</td>
+    <tr>
+        <td>Tunisia</td>
+        <td>Africa</td>
+        <td>12,564,689</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>99.8%</td>
+        <td>0%</td>
+    <tr>
+        <td>South Sudan</td>
+        <td>Africa</td>
+        <td>11,277,092</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>23.6%</td>
+        <td>0%</td>
+    <tr>
+        <td>Togo</td>
+        <td>Africa</td>
+        <td>9,260,864</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>95.2%</td>
+        <td>3.1%</td>
+    <tr>
+        <td>Sierra Leone</td>
+        <td>Africa</td>
+        <td>8,977,972</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>96.1%</td>
+        <td>86.1%</td>
+    <tr>
+        <td>Libya</td>
+        <td>Africa</td>
+        <td>6,964,197</td>
+        <td>51</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>96.6%</td>
+        <td>0%</td>
+    <tr>
+        <td>Republic of the Congo</td>
+        <td>Africa</td>
+        <td>6,244,547</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>70%</td>
+        <td>0%</td>
+    <tr>
+        <td>Central African Republic</td>
+        <td>Africa</td>
+        <td>5,915,627</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>63%</td>
+        <td>24.2%</td>
+    <tr>
+        <td>Liberia</td>
+        <td>Africa</td>
+        <td>5,536,949</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>97.7%</td>
+        <td>44.4%</td>
+    <tr>
+        <td>Mauritania</td>
+        <td>Africa</td>
+        <td>4,993,922</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>99.2%</td>
+        <td>66.6%</td>
+    <tr>
+        <td>Eritrea</td>
+        <td>Africa</td>
+        <td>3,817,651</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>97.2%</td>
+        <td>83%</td>
+    <tr>
+        <td>Gambia</td>
+        <td>Africa</td>
+        <td>2,841,803</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>94.5%</td>
+        <td>66.6%</td>
+    <tr>
+        <td>Botswana</td>
+        <td>Africa</td>
+        <td>2,719,694</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>15.1%</td>
+        <td>0%</td>
+    <tr>
+        <td>Namibia</td>
+        <td>Africa</td>
+        <td>2,645,805</td>
+        <td>48</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>25.5%</td>
+        <td>0%</td>
+    <tr>
+        <td>Gabon</td>
+        <td>Africa</td>
+        <td>2,484,557</td>
+        <td>51</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>99.2%</td>
+        <td>0%</td>
+    <tr>
+        <td>Lesotho</td>
+        <td>Africa</td>
+        <td>2,356,083</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>52%</td>
+        <td>0%</td>
+    <tr>
+        <td>Guinea Bissau</td>
+        <td>Africa</td>
+        <td>2,197,149</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>93.3%</td>
+        <td>44.9%</td>
+    <tr>
+        <td>Equatorial Guinea</td>
+        <td>Africa</td>
+        <td>1,754,993</td>
+        <td>53</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>87%</td>
+        <td>0%</td>
+    <tr>
+        <td>Mauritius</td>
+        <td>Africa</td>
+        <td>1,301,978</td>
+        <td>49</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>16.6%</td>
+        <td>65.2%</td>
+    <tr>
+        <td>Eswatini</td>
+        <td>Africa</td>
+        <td>1,222,075</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>96.5%</td>
+        <td>0%</td>
+    <tr>
+        <td>Djibouti</td>
+        <td>Africa</td>
+        <td>1,152,329</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>%</td>
+        <td>94%</td>
+    <tr>
+        <td>Reunion</td>
+        <td>Africa</td>
+        <td>989,350</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>UNKNOWN</td>
+        <td>0%</td>
+    <tr>
+        <td>Comoros</td>
+        <td>Africa</td>
+        <td>867,605</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>99.4%</td>
+        <td>0%</td>
+    <tr>
+        <td>Cape Verde</td>
+        <td>Africa</td>
+        <td>604,461</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    <tr>
+        <td>Western Sahara</td>
+        <td>Africa</td>
+        <td>598,385</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>99.6%</td>
+        <td>0%</td>
+    <tr>
+        <td>Mayotte</td>
+        <td>Africa</td>
+        <td>345,996</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>UNKNOWN</td>
+        <td>0%</td>
+    <tr>
+        <td>Sao Tome and Principe</td>
+        <td>Africa</td>
+        <td>236,381</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>0.1%</td>
+        <td>0%</td>
+    <tr>
+        <td>Seychelles</td>
+        <td>Africa</td>
+        <td>108,263</td>
+        <td>53</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>1.1%</td>
+        <td>0%</td>
+    </tr>
+    <!-- Add more rows for additional countries -->
+</table>
+        <table id="continentTotals">
+    <tr>
+        <th>Continent</th>
+        <th>Total Population</th>
+        <th>Male Population</th>
+        <th>Female Population</th>
+        <th>Circumcised Male Population</th>
+        <th>Circumcised Female Population</th>
+    </tr>
+        <!-- This is where the continent total table will be inserted -->
+    </table>
+    <h2>Conclusion</h2>
+    <h4>This report provides the most accurate estimate to date of circumcision prevalence in each country and territory of the world. We estimate that 1,064,931,390 men globally are circumcised. Considering the physical and psychological effects of male circumcision, these data may help guide efforts aimed at the prevention of routine infant circumcision throughout the world.</h4>
+    <h2>References</h2>
+    <h4>Morris, B. J., Wamai, R. G., Henebeng, E. B., Tobian, A. A., Klausner, J. D., Banerjee, J., & Hankins, C. A. (2016). Estimation of country-specific and global prevalence of male circumcision. Population Health Metrics, 14(1). <a href="https://doi.org/10.1186/s12963-016-0073-5">https://doi.org/10.1186/s12963-016-0073-5</a></h4>
+    <h4>Population by Continent 2024. World Popuation Review. (2024). <a href="https://web.archive.org/web/20240127121503/https://worldpopulationreview.com/continents">https://web.archive.org/web/20240127121503/https://worldpopulationreview.com/continents</a> </h4>
+    <h4>Population, male (% of total population). World Bank Open Data. (2022). <a href="https://web.archive.org/web/20240303112040/https://data.worldbank.org/indicator/SP.POP.TOTL.MA.ZS">https://web.archive.org/web/20240303112040/https://data.worldbank.org/indicator/SP.POP.TOTL.MA.ZS/a></a></h4>
+    <h4>Female Genital Mutilation/Cutting: A Call for a Global Response. EndFGM. (2020, March). <a href="https://web.archive.org/web/20230209073813/https://www.endfgm.eu/editor/files/2020/04/FGM_Global_-_ONLINE_PDF_VERSION_-_07.pdf">https://web.archive.org/web/20230209073813/https://www.endfgm.eu/editor/files/2020/04/FGM_Global_-_ONLINE_PDF_VERSION_-_07.pdf</a></h4>
+
+</body>
+<script>
+function sortTable(columnIndex) {
+    var table, rows, switching, i, x, y, shouldSwitch, direction, switchcount = 0;
+    table = document.getElementById("dataTable");
+    switching = true;
+    // Set the sorting direction to ascending
+    direction = "asc";
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) {
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("td")[columnIndex];
+            y = rows[i + 1].getElementsByTagName("td")[columnIndex];
+            if (direction === "asc") {
+                if (compareValues(x.innerHTML, y.innerHTML) > 0) {
+                    shouldSwitch = true;
+                    break;
+                }
+            } else if (direction === "desc") {
+                if (compareValues(x.innerHTML, y.innerHTML) < 0) {
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+        }
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            switchcount++;
+        } else {
+            if (switchcount === 0 && direction === "asc") {
+                direction = "desc";
+                switching = true;
+            }
+        }
+    }
+}
+
+function compareValues(x, y) {
+    if (isNumeric(x) && isNumeric(y)) {
+        return parseFloat(x) - parseFloat(y);
+    } else if (x.toLowerCase() === 'unknown') {
+        return 1;
+    } else if (y.toLowerCase() === 'unknown') {
+        return -1;
+    } else if (isNaN(x) && isNaN(y)) {
+        return 0;
+    } else if (isNaN(x)) {
+        return 1;
+    } else if (isNaN(y)) {
+        return -1;
+    } else {
+        return x.localeCompare(y);
+    }
+}
+
+function isNumeric(value) {
+    return !isNaN(parseFloat(value)) && isFinite(value);
+}
+
+
+function calculatePopulation() {
+    var table = document.getElementById("dataTable");
+    var rows = table.getElementsByTagName("tr");
+    for (var i = 1; i < rows.length; i++) {
+        var row = rows[i];
+        var totalPopulation = parseInt(row.cells[2].innerText.replace(/,/g, ""));
+        var malePercentage = parseFloat(row.cells[3].innerText.replace("%", "")); // Remove percentage symbol
+
+        var malePopulation = Math.round((malePercentage / 100) * totalPopulation);
+        var femalePopulation = totalPopulation - malePopulation;
+
+        row.cells[4].innerText = malePopulation.toLocaleString();
+        row.cells[5].innerText = femalePopulation.toLocaleString();
+
+        var circumcisionRateMales = parseFloat(row.cells[8].innerText.replace("%", "")); // Remove percentage symbol
+        var circumcisionRateFemales = parseFloat(row.cells[9].innerText.replace("%", "")); // Remove percentage symbol
+
+        var circumcisedMales = Math.round((circumcisionRateMales / 100) * malePopulation);
+        var circumcisedFemales = parseInt(row.cells[7].innerText.replace(/,/g, ""));
+
+        if (isNaN(circumcisedFemales) || circumcisedFemales === 0) {
+            // Calculate the circumcision rate for females
+            circumcisedFemales = Math.round((circumcisionRateFemales / 100) * femalePopulation);
+            row.cells[7].innerText = circumcisedFemales.toLocaleString();
+        } else if (isNaN(circumcisionRateFemales) || circumcisionRateFemales === 0) {
+            // Calculate the circumcision rate for females
+            circumcisionRateFemales = (circumcisedFemales / femalePopulation) * 100;
+            row.cells[9].innerText = circumcisionRateFemales.toFixed(1) + "%";
+        }
+
+        row.cells[6].innerText = circumcisedMales.toLocaleString();
+    }
+}
+function calculateContinentTotals() {
+    var continentTotals = {};
+    var rows = document.querySelectorAll("#dataTable tbody tr");
+    rows.forEach(function(row) {
+        var continent = row.children[1].textContent.trim();
+        if (!continentTotals[continent]) {
+            continentTotals[continent] = {
+                totalPopulation: 0,
+                malePopulation: 0,
+                femalePopulation: 0,
+                circumcisedMalePopulation: 0,
+                circumcisedFemalePopulation: 0
+            };
+        }
+        continentTotals[continent].totalPopulation += parseInt(row.children[2].textContent.replace(/,/g, ''), 10);
+        continentTotals[continent].malePopulation += parseInt(row.children[4].textContent.replace(/,/g, ''), 10);
+        continentTotals[continent].femalePopulation += parseInt(row.children[5].textContent.replace(/,/g, ''), 10);
+        
+        var circumcisedMale = parseInt(row.children[6].textContent.replace(/,/g, ''), 10);
+        if (!isNaN(circumcisedMale)) {
+            continentTotals[continent].circumcisedMalePopulation += circumcisedMale;
+        }
+        
+        var circumcisedFemale = parseInt(row.children[7].textContent.replace(/,/g, ''), 10);
+        if (!isNaN(circumcisedFemale)) {
+            continentTotals[continent].circumcisedFemalePopulation += circumcisedFemale;
+        }
+    });
+    
+    var continentTotalsElement = document.getElementById("continentTotals");
+    for (var continent in continentTotals) {
+        var newRow = continentTotalsElement.insertRow(-1);
+        newRow.innerHTML = `
+            <td>${continent}</td>
+            <td>${continentTotals[continent].totalPopulation.toLocaleString()}</td>
+            <td>${continentTotals[continent].malePopulation.toLocaleString()}</td>
+            <td>${continentTotals[continent].femalePopulation.toLocaleString()}</td>
+            <td>${continentTotals[continent].circumcisedMalePopulation.toLocaleString()}</td>
+            <td>${continentTotals[continent].circumcisedFemalePopulation.toLocaleString()}</td>
+        `;
+    }
+    // Remove the first row (header row)
+    continentTotalsElement.deleteRow(1);
+}
+
+
+
+
+function searchTable() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("searchInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("dataTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+
+function filterTable() {
+    var select, filter, table, tr, td, i, txtValue;
+    select = document.getElementById("continentFilter");
+    filter = select.value.toUpperCase();
+    table = document.getElementById("dataTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1]; // Assuming continent is in the second column
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (filter === "ALL" || txtValue.toUpperCase() === filter) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+    
+
+window.onload = function() {
+    calculatePopulation();
+    calculateContinentTotals();
+};
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7328745136727655"
+     crossorigin="anonymous"></script>
+    <script>
+am4core.ready(function() {
+    // Create chart instance
+    var chart = am4core.create("chartdiv", am4maps.MapChart);
+    chart.geodata = am4geodata_worldLow;
+    chart.projection = new am4maps.projections.Miller();
+        // Set background color
+    chart.background.fill = am4core.color("#0080ff"); // Light gray
+
+    // Create map polygon series
+    var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+    polygonSeries.useGeodata = true;
+
+    // Set up data for countries (replace this with your actual data)
+    var data = [
+        { "id": "US", "value": 71.2, "secondaryValue": 0.3 },
+        { "id": "CN", "value": 14 },
+        { "id": "IN", "value": 13.5 },
+        { "id": "AF", "value": 99.8 },
+        { "id": "AL", "value": 47.7 },
+        { "id": "DZ", "value": 97.9 },
+        { "id": "AS", "value": 95 },
+        { "id": "AD", "value": 1.1 },
+        { "id": "AO", "value": 57.5 },
+        { "id": "AIAS", "value": 0.3 },
+        { "id": "AS", "value": "Literally Antartica" },
+        { "id": "AG", "value": 0.6 },
+        { "id": "AR", "value": 2.9 },
+        { "id": "AM", "value": 0.1 },
+        { "id": "AW", "value": 0.5 },
+        { "id": "AU", "value": 26.6 },
+        { "id": "AT", "value": 5.8 },
+        { "id": "AZ", "value": 98.5 },
+        { "id": "BS", "value": 0.2 },
+        { "id": "BH", "value": 81.2 },
+        { "id": "BD", "value": 93.2 },
+        { "id": "BB", "value": 0.9 },
+        { "id": "BY", "value": 0.3 },
+        { "id": "BE", "value": 22.6 },
+        { "id": "BZ", "value": 0.1 },
+        { "id": "BJ", "value": 92.9 },
+        { "id": "BM", "value": 0.8 },
+        { "id": "BT", "value": 1 },
+        { "id": "BO", "value": 0.1 },
+        { "id": "BA", "value": 41.6 },
+        { "id": "BW", "value": 15.1 },
+        { "id": "BR", "value": 1.3 },
+        { "id": "BN", "value": 51.9 },
+        { "id": "BG", "value": 13.4 },
+        { "id": "BF", "value": "UNKNOWN" },
+        { "id": "BI", "value": 61.7 },
+        { "id": "CV", "value": 0.1 },
+        { "id": "KH", "value": 0.2 },
+        { "id": "CF", "value": 63 },
+        { "id": "TD", "value": 73.5 },
+        { "id": "CL", "value": 0.2 },
+        { "id": "CO", "value": 2.9 },
+        { "id": "KM", "value": 99.4 },
+        { "id": "CD", "value": 97.2 },
+        { "id": "CG", "value": 70 },
+        { "id": "CK", "value": 95 },
+        { "id": "CR", "value": 0.2 },
+        { "id": "HR", "value": 1.3 },
+        { "id": "CU", "value": 0.1 },
+        { "id": "CW", "value": 0.1 },
+        { "id": "CY", "value": 22.7 },
+        { "id": "CZ", "value": 0.1 },
+        { "id": "CI", "value": 96.7 },
+        { "id": "DK", "value": 5.3 },
+        { "id": "DJ", "value": "UNKNOWN" },
+        { "id": "DM", "value": 0.2 },
+        { "id": "DO", "value": 13.7 },
+        { "id": "EC", "value": 0.1 },
+        { "id": "EG", "value": 94.7 },
+        { "id": "SV", "value": 0.1 },
+        { "id": "GQ", "value": 87 },
+        { "id": "ER", "value": 97.2 },
+        { "id": "EE", "value": 0.3 },
+        { "id": "SZ", "value": 96.5 },
+        { "id": "ET", "value": 92.2 },
+        { "id": "FK", "value": 0.1 },
+        { "id": "FO", "value": 0.1 },
+        { "id": "FJ", "value": 55 },
+        { "id": "FI", "value": 0.8 },
+        { "id": "FR", "value": 14 },
+        { "id": "GF", "value": "UNKNOWN" },
+        { "id": "PF", "value": 78 },
+        { "id": "GA", "value": 99.2 },
+        { "id": "GM", "value": 94.5 },
+        { "id": "GE", "value": "UNKNOWN" },
+        { "id": "DE", "value": 6.7 },
+        { "id": "GH", "value": 91.6 },
+        { "id": "GI", "value": 6 },
+        { "id": "GR", "value": 4.7 },
+        { "id": "GL", "value": 0.1 },
+        { "id": "GD", "value": 0.3 },
+        { "id": "GP", "value": "UNKNOWN" },
+        { "id": "GU", "value": 95 },
+        { "id": "GT", "value": 0.1 },
+        { "id": "GG", "value": 0.1 },
+        { "id": "GN", "value": 84.2 },
+        { "id": "GW", "value": 93.3 },
+        { "id": "GY", "value": 12 },
+        { "id": "HT", "value": 6.2 },
+        { "id": "VT", "value": 0.1 },
+        { "id": "HN", "value": 0.1 },
+        { "id": "HK", "value": 28 },
+        { "id": "HU", "value": 0.8 },
+        { "id": "IS", "value": 0.1 },
+        { "id": "ID", "value": 92.5 },
+        { "id": "IR", "value": 99.7 },
+        { "id": "IQ", "value": 98.9 },
+        { "id": "IE", "value": 0.9 },
+        { "id": "IM", "value": 0.2 },
+        { "id": "IL", "value": 91.7 },
+        { "id": "IT", "value": 2.6 },
+        { "id": "JM", "value": 14 },
+        { "id": "JP", "value": 9.5 },
+        { "id": "JE", "value": 0.1 },
+        { "id": "KZ", "value": 56.4 },
+        { "id": "KE", "value": 91.2 },
+        { "id": "KI", "value": 0.1 },
+        { "id": "AS", "value": 95 },
+        { "id": "KP", "value": 0.1 },
+        { "id": "KR", "value": 77 },
+        { "id": "KW", "value": 86.4 },
+        { "id": "KG", "value": 91.9 },
+        { "id": "LA", "value": 0.1 },
+        { "id": "LV", "value": 0.4 },
+        { "id": "LB", "value": 59.7 },
+        { "id": "LS", "value": 52 },
+        { "id": "LR", "value": 97.7 },
+        { "id": "LY", "value": 86.6 },
+        { "id": "LI", "value": 4.8 },
+        { "id": "LT", "value": 0.2 },
+        { "id": "LU", "value": 2.4 },
+        { "id": "MO", "value": 0.1 },
+        { "id": "MG", "value": 94.7 },
+        { "id": "MW", "value": 21.6 },
+        { "id": "MY", "value": 61.4 },
+        { "id": "ML", "value": 86 },
+        { "id": "MT", "value": 0.3 },
+        { "id": "MH", "value": 0.1 },
+        { "id": "MQ", "value": "UNKNOWN"},
+        { "id": "MR", "value": 99.2 },
+        { "id": "MU", "value": 16.6 },
+        { "id": "YT", "value": "UNKNOWN" },
+        { "id": "MX", "value": 15.4 },
+        { "id": "FM", "value": 0.1 },
+        { "id": "MD", "value": 0.5 },
+        { "id": "MC", "value": 0.5 },
+        { "id": "MN", "value": 4.4 },
+        { "id": "ME", "value": 18.5 },
+        { "id": "MS", "value": 0.1 },
+        { "id": "MA", "value": 99.9 },
+        { "id": "MZ", "value": 47.4 },
+        { "id": "MM", "value": 3.5 },
+        { "id": "NA", "value": 25.5 },
+        { "id": "NR", "value": 95 },
+        { "id": "NP", "value": 4.2 },
+        { "id": "NL", "value": 5.7 },
+        { "id": "NC", "value": 50 },
+        { "id": "NZ", "value": 33 },
+        { "id": "NI", "value": 0.1 },
+        { "id": "NE", "value": 95.5 },
+        { "id": "NG", "value": 98.9 },
+        { "id": "NU", "value": 95 },
+        { "id": "MP", "value": 90 },
+        { "id": "NO", "value": 3 },
+        { "id": "OM", "value": 87.7 },
+        { "id": "PS", "value": 99.9 },
+        { "id": "PA", "value": 1 },
+        { "id": "PG", "value": 10.1 },
+        { "id": "PY", "value": 0.1 },
+        { "id": "PE", "value": 3.7 },
+        { "id": "PH", "value": 91.7 },
+        { "id": "PL", "value": 0.1 },
+        { "id": "PT", "value": 0.6 },
+        { "id": "PR", "value": 0.1},
+        { "id": "QA", "value": 77.5 },
+        { "id": "MK", "value": "UNKNOWN" },
+        { "id": "LY", "value": 86.6 },
+        { "id": "RO", "value": 0.3 },
+        { "id": "RU", "value": 10.9 },
+        { "id": "RW", "value": 13.3 },
+        { "id": "RE", "value": "UNKNOWN" },
+        { "id": "BL", "value": 0.1 },
+        { "id": "KN", "value": 0.3 },
+        { "id": "LC", "value": 0.1 },
+        { "id": "MF", "value": 0.1 },
+        { "id": "PM", "value": 0.2 },
+        { "id": "VC", "value": 1.7 },
+        { "id": "WS", "value": 95 },
+        { "id": "SM", "value": 0.1 },
+        { "id": "ST", "value": 0.1 },
+        { "id": "SA", "value": 97.1 },
+        { "id": "SN", "value": 93.5 },
+        { "id": "RS", "value": 3.7 },
+        { "id": "SC", "value": 1.1 },
+        { "id": "SL", "value": 96.1 },
+        { "id": "SG", "value": 14.9 },
+        { "id": "SX", "value": 0.1 },
+        { "id": "SK", "value": 0.2 },
+        { "id": "SI", "value": 8.5 },
+        { "id": "SB", "value": 95 },
+        { "id": "SO", "value": 93.5 },
+        { "id": "ZA", "value": 44.7 },
+        { "id": "SS", "value": 23.6 },
+        { "id": "ES", "value": 6.6 },
+        { "id": "LK", "value": 8.5 },
+        { "id": "SD", "value": 39.4 },
+        { "id": "SR", "value": 15.9 },
+        { "id": "SE", "value": 5.1 },
+        { "id": "CH", "value": 5.9 },
+        { "id": "SY", "value": 92.8 },
+        { "id": "TW", "value": 8.3 },
+        { "id": "TJ", "value": 99 },
+        { "id": "TZ", "value": 72 },
+        { "id": "TH", "value": 23.4 },
+        { "id": "TL", "value": 6.4 },
+        { "id": "TG", "value": 95.2 },
+        { "id": "TK", "value": 95 },
+        { "id": "TO", "value": 95 },
+        { "id": "TT", "value": 5.8 },
+        { "id": "TN", "value": 99.8 },
+        { "id": "TR", "value": 98.6 },
+        { "id": "TM", "value": 93.4 },
+        { "id": "TC", "value": 0.1 },
+        { "id": "TV", "value": 95 },
+        { "id": "UG", "value": 26.7 },
+        { "id": "UA", "value": 2.3 },
+        { "id": "AE", "value": 76 },
+        { "id": "GB", "value": 20.7 },
+        { "id": "UR", "value": 0.6 },
+        { "id": "UZ", "value": 96.5 },
+        { "id": "VU", "value": 95 },
+        { "id": "VE", "value": 0.2 },
+        { "id": "VG", "value": 1.2 },
+        { "id": "VI", "value": 0.6 },
+        { "id": "WF", "value": 0.1 },
+        { "id": "EH", "value": 99.6 },
+        { "id": "YE", "value": 99 },
+        { "id": "ZM", "value": 12.8 },
+        { "id": "ZW", "value": 9.2 },
+        { "id": "SJ", "value": "UNKNOWN" },
+        { "id": "UY", "value": 0.6 },
+        { "id": "AQ", "value": "LITERALLY ANTARTICA" },
+        { "id": "CA", "value": 31.9 },
+                
+
+        
+        // Add more data for other countries
+    ];
+
+    polygonSeries.data = data;
+
+    // Configure series
+    var polygonTemplate = polygonSeries.mapPolygons.template;
+    polygonTemplate.tooltipText = "{name}:\nMale Circumcision Rate: {value}%{additionalInfo}";
+    polygonTemplate.propertyFields.fill = "fill"; // use data to set fill color
+    polygonTemplate.nonScalingStroke = true;
+
+// Set up heat rule with custom colors for different ranges
+polygonSeries.heatRules.push({
+    "property": "fill",
+    "target": polygonSeries.mapPolygons.template,
+    "min": am4core.color("#74B266"), // Light green for rates less than 15%
+    "max": am4core.color("#74B266"), // Gold for rates between 15% and 30%
+    "dataField": "value",
+    "minValue": 0,
+    "maxValue": 15
+});
+
+polygonSeries.heatRules.push({
+    "property": "fill",
+    "target": polygonSeries.mapPolygons.template,
+    "min": am4core.color("#FFD700"), // Gold for rates between 15% and 30%
+    "max": am4core.color("#FFD700"), // Dark red for rates greater than 30%
+    "dataField": "value",
+    "minValue": 16,
+    "maxValue": 30
+});
+
+polygonSeries.heatRules.push({
+    "property": "fill",
+    "target": polygonSeries.mapPolygons.template,
+    "min": am4core.color("#8B0000"), // Dark red for rates greater than 30%
+    "max": am4core.color("#8B0000"), // Gold for rates greater than 30%
+    "dataField": "value",
+    "minValue": 31,
+    "maxValue": 100 // Assuming rates go up to 100%
+});
+
+// Set default color for rates outside defined ranges
+polygonSeries.mapPolygons.template.fill = am4core.color("#0080ff"); // Light gray
+
+
+
+    // Add additional information to tooltip
+    polygonSeries.mapPolygons.template.adapter.add("tooltipText", function(text, target) {
+        if (target.dataItem && target.dataItem.dataContext.secondaryValue) {
+            return text.replace("{additionalInfo}", "\nFemale Circumcision Rate:[/] " + target.dataItem.dataContext.secondaryValue) + "%";
+        }
+        return text.replace("{additionalInfo}", "");
+    });
+});
+    </script>
+</html>
