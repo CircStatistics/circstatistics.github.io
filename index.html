@@ -32,8 +32,9 @@
         </div>
     </header>
     <h2>Global Circumcision Statistics and Estimates</h2>
+    <h4>Hover over the country to see the male and, if applicable, female circumcision rates for that country.</h4>
     <div id="chartdiv" style="width: 100%; height: 500px;"></div>
-
+    
     <h4>Note: if no data for the percentage of population by gender exists, the percentage of males is assumed to be 50%</h4>
 <input type="text" id="searchInput" placeholder="Search for a country..." onkeyup="searchTable()">
 <select id="continentFilter" onchange="filterTable()">
@@ -2719,6 +2720,7 @@
         <th>Male Population</th>
         <th>Female Population</th>
         <th>Circumcised Male Population</th>
+        <th>Uncircumcised Male Population</th>
         <th>Circumcised Female Population</th>
     </tr>
         <!-- This is where the continent total table will be inserted -->
@@ -2838,6 +2840,7 @@ function calculateContinentTotals() {
                 malePopulation: 0,
                 femalePopulation: 0,
                 circumcisedMalePopulation: 0,
+                uncircumcisedMalePopulation: 0,
                 circumcisedFemalePopulation: 0
             };
         }
@@ -2848,6 +2851,7 @@ function calculateContinentTotals() {
         var circumcisedMale = parseInt(row.children[6].textContent.replace(/,/g, ''), 10);
         if (!isNaN(circumcisedMale)) {
             continentTotals[continent].circumcisedMalePopulation += circumcisedMale;
+            continentTotals[continent].uncircumcisedMalePopulation += (parseInt(row.children[4].textContent.replace(/,/g, ''), 10) - circumcisedMale);
         }
         
         var circumcisedFemale = parseInt(row.children[7].textContent.replace(/,/g, ''), 10);
@@ -2865,6 +2869,7 @@ function calculateContinentTotals() {
             <td>${continentTotals[continent].malePopulation.toLocaleString()}</td>
             <td>${continentTotals[continent].femalePopulation.toLocaleString()}</td>
             <td>${continentTotals[continent].circumcisedMalePopulation.toLocaleString()}</td>
+            <td>${continentTotals[continent].uncircumcisedMalePopulation.toLocaleString()}</td>
             <td>${continentTotals[continent].circumcisedFemalePopulation.toLocaleString()}</td>
         `;
     }
@@ -2936,7 +2941,7 @@ am4core.ready(function() {
 
     // Set up data for countries (replace this with your actual data)
     var data = [
-        { "id": "US", "value": 71.2 },
+        { "id": "US", "value": 71.2, "secondaryValue": 0.3 },
         { "id": "CN", "value": 14 },
         { "id": "IN", "value": 13.5 },
         { "id": "AF", "value": 99.8 },
@@ -2952,16 +2957,16 @@ am4core.ready(function() {
         { "id": "AM", "value": 0.1 },
         { "id": "AW", "value": 0.5 },
         { "id": "AU", "value": 26.6 },
-        { "id": "AT", "value": 5.8 },
+        { "id": "AT", "value": 5.8, "secondaryValue": 0.2},
         { "id": "AZ", "value": 98.5 },
         { "id": "BS", "value": 0.2 },
         { "id": "BH", "value": 81.2 },
         { "id": "BD", "value": 93.2 },
         { "id": "BB", "value": 0.9 },
         { "id": "BY", "value": 0.3 },
-        { "id": "BE", "value": 22.6 },
+        { "id": "BE", "value": 22.6, "secondaryValue": 0.3},
         { "id": "BZ", "value": 0.1 },
-        { "id": "BJ", "value": 92.9 },
+        { "id": "BJ", "value": 92.9, "secondaryValue": 9.2},
         { "id": "BM", "value": 0.8 },
         { "id": "BT", "value": 1 },
         { "id": "BO", "value": 0.1 },
@@ -2970,78 +2975,78 @@ am4core.ready(function() {
         { "id": "BR", "value": 1.3 },
         { "id": "BN", "value": 51.9 },
         { "id": "BG", "value": 13.4 },
-        { "id": "BF", "value": "UNKNOWN" },
+        { "id": "BF", "value": "UNKNOWN", "secondaryValue": 75.8},
         { "id": "BI", "value": 61.7 },
         { "id": "CV", "value": 0.1 },
         { "id": "KH", "value": 0.2 },
-        { "id": "CF", "value": 63 },
-        { "id": "TD", "value": 73.5 },
+        { "id": "CF", "value": 63, "secondaryValue": 44.4},
+        { "id": "TD", "value": 73.5, "secondaryValue": 38.4},
         { "id": "CL", "value": 0.2 },
         { "id": "CO", "value": 2.9 },
         { "id": "KM", "value": 99.4 },
         { "id": "CD", "value": 97.2 },
-        { "id": "CG", "value": 70 },
+        { "id": "CG", "value": 70, "secondaryValue": 24.2},
         { "id": "CK", "value": 95 },
         { "id": "CR", "value": 0.2 },
         { "id": "HR", "value": 1.3 },
         { "id": "CU", "value": 0.1 },
         { "id": "CW", "value": 0.1 },
-        { "id": "CY", "value": 22.7 },
+        { "id": "CY", "value": 22.7, "secondaryValue": 0.2},
         { "id": "CZ", "value": 0.1 },
-        { "id": "CI", "value": 96.7 },
-        { "id": "DK", "value": 5.3 },
-        { "id": "DJ", "value": "UNKNOWN" },
+        { "id": "CI", "value": 96.7, "secondaryValue": 36.7},
+        { "id": "DK", "value": 5.3, "secondaryValue": 0.3},
+        { "id": "DJ", "value": "UNKNOWN", "secondaryValue": 94},
         { "id": "DM", "value": 0.2 },
         { "id": "DO", "value": 13.7 },
         { "id": "EC", "value": 0.1 },
-        { "id": "EG", "value": 94.7 },
+        { "id": "EG", "value": 94.7, "secondaryValue": 87.2},
         { "id": "SV", "value": 0.1 },
         { "id": "GQ", "value": 87 },
-        { "id": "ER", "value": 97.2 },
+        { "id": "ER", "value": 97.2, "secondaryValue": 83},
         { "id": "EE", "value": 0.3 },
         { "id": "SZ", "value": 96.5 },
-        { "id": "ET", "value": 92.2 },
+        { "id": "ET", "value": 92.2, "secondaryValue": 65.2},
         { "id": "FK", "value": 0.1 },
         { "id": "FO", "value": 0.1 },
         { "id": "FJ", "value": 55 },
-        { "id": "FI", "value": 0.8 },
-        { "id": "FR", "value": 14 },
+        { "id": "FI", "value": 0.8, "secondaryValue": 0.4},
+        { "id": "FR", "value": 14, "secondaryValue": 0.4},
         { "id": "GF", "value": "UNKNOWN" },
         { "id": "PF", "value": 78 },
         { "id": "GA", "value": 99.2 },
-        { "id": "GM", "value": 94.5 },
+        { "id": "GM", "value": 94.5, "secondaryValue": 66.6},
         { "id": "GE", "value": "UNKNOWN" },
-        { "id": "DE", "value": 6.7 },
-        { "id": "GH", "value": 91.6 },
+        { "id": "DE", "value": 6.7, "secondaryValue": 0.2},
+        { "id": "GH", "value": 91.6, "secondaryValue": 3.8},
         { "id": "GI", "value": 6 },
-        { "id": "GR", "value": 4.7 },
+        { "id": "GR", "value": 4.7, "secondaryValue": 0.3},
         { "id": "GL", "value": 0.1 },
         { "id": "GD", "value": 0.3 },
         { "id": "GP", "value": "UNKNOWN" },
         { "id": "GU", "value": 95 },
         { "id": "GT", "value": 0.1 },
         { "id": "GG", "value": 0.1 },
-        { "id": "GN", "value": 84.2 },
-        { "id": "GW", "value": 93.3 },
+        { "id": "GN", "value": 84.2, "secondaryValue": 94.5},
+        { "id": "GW", "value": 93.3, "secondaryValue": 44.9},
         { "id": "GY", "value": 12 },
         { "id": "HT", "value": 6.2 },
         { "id": "VT", "value": 0.1 },
         { "id": "HN", "value": 0.1 },
         { "id": "HK", "value": 28 },
-        { "id": "HU", "value": 0.8 },
+        { "id": "HU", "value": 0.8, "secondaryValue": 0.1 },
         { "id": "IS", "value": 0.1 },
-        { "id": "ID", "value": 92.5 },
+        { "id": "ID", "value": 92.5, "secondaryValue": 49.2 },
         { "id": "IR", "value": 99.7 },
-        { "id": "IQ", "value": 98.9 },
+        { "id": "IQ", "value": 98.9, "secondaryValue": 7.4 },
         { "id": "IE", "value": 0.9 },
         { "id": "IM", "value": 0.2 },
         { "id": "IL", "value": 91.7 },
-        { "id": "IT", "value": 2.6 },
+        { "id": "IT", "value": 2.6, "secondaryValue": 0.2},
         { "id": "JM", "value": 14 },
         { "id": "JP", "value": 9.5 },
         { "id": "JE", "value": 0.1 },
         { "id": "KZ", "value": 56.4 },
-        { "id": "KE", "value": 91.2 },
+        { "id": "KE", "value": 91.2, "secondaryValue": 21},
         { "id": "KI", "value": 0.1 },
         { "id": "AS", "value": 95 },
         { "id": "KP", "value": 0.1 },
@@ -3052,21 +3057,21 @@ am4core.ready(function() {
         { "id": "LV", "value": 0.4 },
         { "id": "LB", "value": 59.7 },
         { "id": "LS", "value": 52 },
-        { "id": "LR", "value": 97.7 },
+        { "id": "LR", "value": 97.7, "secondaryValue": 44.4},
         { "id": "LY", "value": 86.6 },
         { "id": "LI", "value": 4.8 },
         { "id": "LT", "value": 0.2 },
-        { "id": "LU", "value": 2.4 },
+        { "id": "LU", "value": 2.4, "secondaryValue": 0.1},
         { "id": "MO", "value": 0.1 },
         { "id": "MG", "value": 94.7 },
         { "id": "MW", "value": 21.6 },
         { "id": "MY", "value": 61.4 },
-        { "id": "ML", "value": 86 },
-        { "id": "MT", "value": 0.3 },
+        { "id": "ML", "value": 86, "secondaryValue": 86.6},
+        { "id": "MT", "value": 0.3, "secondaryValue": 0.2},
         { "id": "MH", "value": 0.1 },
         { "id": "MQ", "value": "UNKNOWN"},
-        { "id": "MR", "value": 99.2 },
-        { "id": "MU", "value": 16.6 },
+        { "id": "MR", "value": 99.2, "secondaryValue": 66.6},
+        { "id": "MU", "value": 16.6, "secondaryValue": 65.2},
         { "id": "YT", "value": "UNKNOWN" },
         { "id": "MX", "value": 15.4 },
         { "id": "FM", "value": 0.1 },
@@ -3081,15 +3086,15 @@ am4core.ready(function() {
         { "id": "NA", "value": 25.5 },
         { "id": "NR", "value": 95 },
         { "id": "NP", "value": 4.2 },
-        { "id": "NL", "value": 5.7 },
+        { "id": "NL", "value": 5.7, "secondaryValue": 0.5},
         { "id": "NC", "value": 50 },
         { "id": "NZ", "value": 33 },
         { "id": "NI", "value": 0.1 },
-        { "id": "NE", "value": 95.5 },
-        { "id": "NG", "value": 98.9 },
+        { "id": "NE", "value": 95.5, "secondaryValue": 1.4},
+        { "id": "NG", "value": 98.9, "secondaryValue": 19.5},
         { "id": "NU", "value": 95 },
         { "id": "MP", "value": 90 },
-        { "id": "NO", "value": 3 },
+        { "id": "NO", "value": 3, "secondaryValue": 0.6},
         { "id": "OM", "value": 87.7 },
         { "id": "PS", "value": 99.9 },
         { "id": "PA", "value": 1 },
@@ -3098,7 +3103,7 @@ am4core.ready(function() {
         { "id": "PE", "value": 3.7 },
         { "id": "PH", "value": 91.7 },
         { "id": "PL", "value": 0.1 },
-        { "id": "PT", "value": 0.6 },
+        { "id": "PT", "value": 0.6, "secondaryValue": 97.9},
         { "id": "PR", "value": 0.1},
         { "id": "QA", "value": 77.5 },
         { "id": "MK", "value": "UNKNOWN" },
@@ -3117,31 +3122,31 @@ am4core.ready(function() {
         { "id": "SM", "value": 0.1 },
         { "id": "ST", "value": 0.1 },
         { "id": "SA", "value": 97.1 },
-        { "id": "SN", "value": 93.5 },
+        { "id": "SN", "value": 93.5, "secondaryValue": 24},
         { "id": "RS", "value": 3.7 },
         { "id": "SC", "value": 1.1 },
-        { "id": "SL", "value": 96.1 },
+        { "id": "SL", "value": 96.1, "secondaryValue": 86.1},
         { "id": "SG", "value": 14.9 },
         { "id": "SX", "value": 0.1 },
         { "id": "SK", "value": 0.2 },
         { "id": "SI", "value": 8.5 },
         { "id": "SB", "value": 95 },
-        { "id": "SO", "value": 93.5 },
+        { "id": "SO", "value": 93.5, "secondaryValue": 97.9},
         { "id": "ZA", "value": 44.7 },
         { "id": "SS", "value": 23.6 },
-        { "id": "ES", "value": 6.6 },
+        { "id": "ES", "value": 6.6, "secondaryValue": 0.1},
         { "id": "LK", "value": 8.5 },
-        { "id": "SD", "value": 39.4 },
+        { "id": "SD", "value": 39.4, "secondaryValue": 86.1},
         { "id": "SR", "value": 15.9 },
-        { "id": "SE", "value": 5.1 },
-        { "id": "CH", "value": 5.9 },
+        { "id": "SE", "value": 5.1, "secondaryValue": 0.3},
+        { "id": "CH", "value": 5.9, "secondaryValue": 0.3},
         { "id": "SY", "value": 92.8 },
         { "id": "TW", "value": 8.3 },
         { "id": "TJ", "value": 99 },
-        { "id": "TZ", "value": 72 },
+        { "id": "TZ", "value": 72, "secondaryValue": 10},
         { "id": "TH", "value": 23.4 },
         { "id": "TL", "value": 6.4 },
-        { "id": "TG", "value": 95.2 },
+        { "id": "TG", "value": 95.2, "secondaryValue": 3.1},
         { "id": "TK", "value": 95 },
         { "id": "TO", "value": 95 },
         { "id": "TT", "value": 5.8 },
@@ -3153,7 +3158,7 @@ am4core.ready(function() {
         { "id": "UG", "value": 26.7 },
         { "id": "UA", "value": 2.3 },
         { "id": "AE", "value": 76 },
-        { "id": "GB", "value": 20.7 },
+        { "id": "GB", "value": 20.7, "secondaryValue": 0.7 },
         { "id": "UR", "value": 0.6 },
         { "id": "UZ", "value": 96.5 },
         { "id": "VU", "value": 95 },
@@ -3162,8 +3167,8 @@ am4core.ready(function() {
         { "id": "VI", "value": 0.6 },
         { "id": "WF", "value": 0.1 },
         { "id": "EH", "value": 99.6 },
-        { "id": "YE", "value": 99 },
-        { "id": "ZM", "value": 12.8 },
+        { "id": "YE", "value": 99, "secondaryValue": 18.5 },
+        { "id": "ZM", "value": 12.8, "secondaryValue": 0.7},
         { "id": "ZW", "value": 9.2 },
         { "id": "SJ", "value": "UNKNOWN" },
         { "id": "UY", "value": 0.6 },
@@ -3179,8 +3184,9 @@ am4core.ready(function() {
 
     // Configure series
     var polygonTemplate = polygonSeries.mapPolygons.template;
-    polygonTemplate.tooltipText = "{name}: {value}%";
-    polygonTemplate.fill = am4core.color("#8B0000"); // Default color
+    polygonTemplate.tooltipText = "{name}:\nMale Circumcision Rate: {value}%{additionalInfo}";
+    polygonTemplate.propertyFields.fill = "fill"; // use data to set fill color
+    polygonTemplate.nonScalingStroke = true;
 
     // Set up heat rule
     polygonSeries.heatRules.push({
@@ -3191,6 +3197,23 @@ am4core.ready(function() {
         
         "dataField": "value"
     });
+
+// Set default color for rates outside defined ranges
+polygonSeries.mapPolygons.template.fill = am4core.color("#808080"); // Light gray
+
+
+
+    // Add additional information to tooltip
+    polygonSeries.mapPolygons.template.adapter.add("tooltipText", function(text, target) {
+        if (target.dataItem && target.dataItem.dataContext.secondaryValue) {
+            return text.replace("{additionalInfo}", "\nFemale Circumcision Rate:[/] " + target.dataItem.dataContext.secondaryValue) + "%";
+        if (target.dataItem && target.dataItem.dataContext.value === "UNKNOWN") {
+            return text.replace("{value}", "data not available");
+        }
+        }
+        return text.replace("{additionalInfo}", "");
+    });
+
 });
     </script>
 </html>

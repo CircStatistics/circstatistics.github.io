@@ -115,12 +115,71 @@
 
     <!-- Add more rows for each state -->
 </table>
+    <h2>Country Totals</h2>
+    <table id="summaryTable">
+    <tr>
+        <th>Statistic</th>
+        <th>Total</th>
+    </tr>
+    <tr>
+        <td>Total Population</td>
+        <td id="totalPopulation">Calculating...</td>
+    </tr>
+    <tr>
+        <td>Male Population</td>
+        <td id="malePopulation">Calculating...</td>
+    </tr>
+    <tr>
+        <td>Female Population</td>
+        <td id="femalePopulation">Calculating...</td>
+    </tr>
+    <tr>
+        <td>Circumcised Male Population</td>
+        <td id="circumcisedMalePopulation">Calculating...</td>
+    </tr>
+    <tr>
+        <td>Uncircumcised Male Population</td>
+        <td id="uncircumcisedMalePopulation">Calculating...</td>
+    </tr>
+</table>
     <h2>References</h2>
-    <h4>Circumcision and Non-circumcision in Australia. (n.d.). Www.cirp.org. Retrieved March 26, 2024, from <a href="https://www.cirp.org/library/statistics/CandNon-C/">https://www.cirp.org/library/statistics/CandNon-C/</a></h4>
+    <h4>Circumcision and Non-circumcision in Australia. (n.d.). www.cirp.org. Retrieved March 26, 2024, from <a href="https://www.cirp.org/library/statistics/CandNon-C/">https://www.cirp.org/library/statistics/CandNon-C/</a></h4>
     <h4>WorldAtlas. (2016, August 29). Australian States and Territories By Population. WorldAtlas. <a href="https://www.worldatlas.com/articles/the-largest-states-and-territories-of-australia.html">https://www.worldatlas.com/articles/the-largest-states-and-territories-of-australia.html</a> </h4>
     <h4>Australian Bureau of Statistics. (2022, August 30). Regional population by age and sex, 2019 | Australian Bureau of Statistics. Regional Population by Age and Sex; Australian Bureau of Statistics. <a href="https://www.abs.gov.au/statistics/people/population/regional-population-age-and-sex/latest-release">https://www.abs.gov.au/statistics/people/population/regional-population-age-and-sex/latest-release</a></h4>
 
 </body>
+<script>
+    // Get table rows
+    const tableRows = document.querySelectorAll("#dataTable tr");
+
+    let totalPopulation = 0;
+    let malePopulation = 0;
+    let femalePopulation = 0;
+    let circumcisedMalePopulation = 0;
+
+    // Calculate totals
+    tableRows.forEach((row, index) => {
+        if (index !== 0) { // Skip header row
+            const totalPop = parseInt(row.cells[1].innerText.replace(/,/g, ""));
+            const malePop = Math.round(totalPop * parseFloat(row.cells[2].innerText) / 100);
+            const femalePop = totalPop - malePop;
+            const circMalePop = Math.round(malePop * parseFloat(row.cells[5].innerText) / 100);
+            const uncircMalePop = malePop - circMalePop;
+
+            totalPopulation += totalPop;
+            malePopulation += malePop;
+            femalePopulation += femalePop;
+            circumcisedMalePopulation += circMalePop;
+        }
+    });
+
+    // Display totals in summary table
+    document.getElementById("totalPopulation").innerText = totalPopulation.toLocaleString();
+    document.getElementById("malePopulation").innerText = malePopulation.toLocaleString();
+    document.getElementById("femalePopulation").innerText = femalePopulation.toLocaleString();
+    document.getElementById("circumcisedMalePopulation").innerText = circumcisedMalePopulation.toLocaleString();
+    document.getElementById("uncircumcisedMalePopulation").innerText = (malePopulation - circumcisedMalePopulation).toLocaleString();
+</script>
 <script>
 function sortTable(columnIndex) {
     var table, rows, switching, i, x, y, shouldSwitch, direction, switchcount = 0;
@@ -337,14 +396,14 @@ window.onload = function() {
             // Configure series
             var polygonTemplate = polygonSeries.mapPolygons.template;
             polygonTemplate.tooltipText = "{name}: {value}%";
-            polygonTemplate.fill = am4core.color("#8B0000"); // Default color
+            polygonTemplate.fill = am4core.color("#75A85F"); // Default color
 
             // Set up heat rule
             polygonSeries.heatRules.push({
                 "property": "fill",
                 "target": polygonSeries.mapPolygons.template,
                 "min": am4core.color("#74B266"),
-                "max": am4core.color("#8B0000"),
+                "max": am4core.color("#75A85F"),
                 "dataField": "value"
             });
 
